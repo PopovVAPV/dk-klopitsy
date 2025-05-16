@@ -2,13 +2,24 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#800000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>ДК "Клопицы" - Главная</title>
+    <!-- Предзагрузка критических ресурсов -->
+    <link rel="preload" href="css/menu.css" as="style">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/modern-menu.js" as="script">
+    <link rel="preload" href="js/main.js" as="script">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Google Fonts -->
+    <!-- Google Fonts - предзагрузка для оптимизации -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -434,7 +445,14 @@
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="card event-card h-100 border-0">
                             <div class="position-relative">
-                                <img src="images/events/event1.jpg" class="card-img-top" alt="Концерт" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Концерт'">
+                                <img loading="lazy" 
+                                     data-src="images/events/event1.jpg" 
+                                     class="card-img-top fade-in-image" 
+                                     alt="Концерт" 
+                                     width="600" 
+                                     height="400" 
+                                     onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400/beige/800000?text=Концерт'"
+                                     sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 33vw">
                                 <div class="event-date">
                                     <span class="day">15</span>
                                     <span class="month">Дек</span>
@@ -459,7 +477,14 @@
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="card event-card h-100 border-0">
                             <div class="position-relative">
-                                <img src="images/events/event2.jpg" class="card-img-top" alt="Мастер-класс" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Мастер-класс'">
+                                <img loading="lazy" 
+                                     data-src="images/events/event2.jpg" 
+                                     class="card-img-top fade-in-image" 
+                                     alt="Мастер-класс" 
+                                     width="600" 
+                                     height="400" 
+                                     onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400/beige/800000?text=Мастер-класс'"
+                                     sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 33vw">
                                 <div class="event-date">
                                     <span class="day">20</span>
                                     <span class="month">Дек</span>
@@ -484,7 +509,14 @@
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="card event-card h-100 border-0">
                             <div class="position-relative">
-                                <img src="images/events/event3.jpg" class="card-img-top" alt="Спектакль" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Спектакль'">
+                                <img loading="lazy" 
+                                     data-src="images/events/event3.jpg" 
+                                     class="card-img-top fade-in-image" 
+                                     alt="Спектакль" 
+                                     width="600" 
+                                     height="400" 
+                                     onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400/beige/800000?text=Спектакль'"
+                                     sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 33vw">
                                 <div class="event-date">
                                     <span class="day">25</span>
                                     <span class="month">Дек</span>
@@ -731,19 +763,27 @@
     </footer>
 
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- AOS - Animate on scroll -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <!-- Современное меню JS -->
-    <script src="js/modern-menu.js"></script>
+    <script src="js/modern-menu.js" defer></script>
     <!-- Custom JS -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
     
     <script>
-        // Инициализация AOS (Animate On Scroll)
-        AOS.init({
-            duration: 800,
-            once: true
+        // Инициализация AOS (Animate On Scroll) с более высокой производительностью
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100,
+                    delay: 0,
+                    throttleDelay: 99,
+                    disable: window.innerWidth < 768 ? true : false // Отключаем на мобильных для лучшей производительности
+                });
+            }, 100);
         });
     </script>
 </body>

@@ -448,9 +448,37 @@ footer .social-links a:hover {
 }
 
 /* Адаптивность */
+@media (max-width: 1199px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .counter-box {
+        margin-bottom: 30px;
+    }
+}
+
 @media (max-width: 768px) {
     body {
-        padding-top: 70px; /* Меньший отступ для мобильных устройств */
+        padding-top: 60px;
     }
     
     .hero-section {
@@ -458,31 +486,203 @@ footer .social-links a:hover {
     }
     
     .display-4 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
-
+    
     section {
         padding: 50px 0;
     }
-
+    
     .event-card {
         margin-bottom: 20px;
     }
-
+    
     .event-date {
         padding: 10px;
         top: 10px;
         right: 10px;
     }
-
+    
     .event-date .day {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
-
+    
     .club-icon-circle {
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
         font-size: 1.2rem;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .counter-box .counter-icon {
+        font-size: 2rem;
+    }
+    
+    .counter-box h4 {
+        font-size: 1.2rem;
+    }
+    
+    .counter-value {
+        font-size: 1.8rem;
+    }
+    
+    .footer-column {
+        margin-bottom: 20px;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .display-4 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Оптимизация изображений */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Улучшенная адаптивность карточек */
+.card {
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    background-color: white;
+}
+
+.card-img-top {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+/* Улучшения для форм */
+input, textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 16px !important; /* Предотвращает масштабирование на iOS */
+}
+
+/* Плавное появление изображений */
+.fade-in-image { 
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in-image.loaded {
+    opacity: 1;
+}
+
+/* Одинаковая высота карточек */
+.equal-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.equal-height > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.equal-height .card {
+    flex: 1;
+}
+
+/* Улучшения grid-layout для адаптивности */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+/* Улучшение адаптивности шрифтов */
+html {
+    font-size: 16px; /* Базовый размер шрифта */
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Улучшения для touch-устройств */
+@media (hover: none) {
+    .btn:hover {
+        transform: none !important;
+    }
+    
+    .card:hover {
+        transform: none !important;
+    }
+    
+    .btn:active,
+    .card:active {
+        transform: scale(0.98) !important;
     }
 }
 
@@ -786,4 +986,105 @@ input:focus, textarea:focus, select:focus {
 .page-title {
     margin-top: 20px;
     margin-bottom: 40px;
+}
+
+/* Оптимизация для прокрутки и анимации */
+.is-scrolling * {
+    pointer-events: none;
+}
+
+.is-scrolling .modern-menu {
+    pointer-events: auto;
+}
+
+/* Улучшение отзывчивости на касания */
+[data-touch-active="true"] {
+    transform: scale(0.97) !important;
+    transition: transform 0.1s ease !important;
+}
+
+/* Исправления для iPhone X и новее с вырезами */
+@supports (padding: env(safe-area-inset-top)) {
+    body, .modern-menu, footer {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+    
+    .modern-menu {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    footer {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Улучшения для высоких мобильных экранов */
+@media (min-height: 800px) and (max-width: 576px) {
+    .hero-section {
+        min-height: 60vh;
+    }
+}
+
+/* Улучшения макета для планшетов в альбомной ориентации */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .hero-section {
+        min-height: 80vh;
+    }
+}
+
+/* Улучшения для устройств с высоким DPI */
+@media screen and (min-resolution: 2dppx) {
+    .card, .btn, .nav-link, .menu-link {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Улучшение тактильного отклика для сенсорных устройств */
+@media (hover: none) {
+    .btn:active, 
+    .card:active, 
+    .nav-link:active, 
+    .menu-link:active,
+    .dropdown-item:active {
+        transform: scale(0.96) !important;
+        transition: transform 0.1s ease !important;
+    }
+}
+
+/* Улучшение доступности интерактивных элементов */
+.btn, .menu-link, .nav-link, .dropdown-item, button {
+    min-height: 44px; /* Минимальная высота для сенсорного контакта */
+    min-width: 44px; /* Минимальная ширина для сенсорного контакта */
+}
+
+a:focus-visible, button:focus-visible, .btn:focus-visible, 
+.nav-link:focus-visible, .menu-link:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+/* Оптимизация производительности анимаций */
+.animate-fade-up,
+.animate-fade-in,
+.animate-slide-left,
+.animate-slide-right {
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Улучшение отображения изображений */
+img {
+    object-fit: cover; /* Для единообразия всех изображений */
+    font-family: 'object-fit: cover'; /* Для IE */
+}
+
+.card-img-top {
+    aspect-ratio: 16/9; /* Для одинаковой пропорции всех карточек */
 } 

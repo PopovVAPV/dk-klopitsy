@@ -17,17 +17,24 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.paddingTop = menuHeight + 'px';
     }
     
+    // Оптимизированный вызов функции с debounce для улучшения производительности
+    let menuFixedTimeout;
+    function debouncedMenuFixed() {
+        clearTimeout(menuFixedTimeout);
+        menuFixedTimeout = setTimeout(ensureMenuFixed, 100);
+    }
+    
     // Вызываем функцию сразу
     ensureMenuFixed();
     
     // Вызываем с небольшой задержкой после загрузки DOM
     setTimeout(ensureMenuFixed, 100);
     
+    // Оптимизированная обработка события resize
+    window.addEventListener('resize', debouncedMenuFixed);
+    
     // Вызываем после полной загрузки страницы
     window.addEventListener('load', ensureMenuFixed);
-    
-    // Вызываем при изменении размера окна
-    window.addEventListener('resize', ensureMenuFixed);
 
     // Добавляем класс для плавного появления страницы
     document.body.classList.add('fade-in-page');
@@ -72,56 +79,93 @@ document.addEventListener('DOMContentLoaded', function() {
                     slidesPerView: 3,
                     spaceBetween: 30
                 }
-            }
+            },
+            // Оптимизация для мобильных устройств
+            preloadImages: false,
+            lazy: true, // ленивая загрузка
+            watchSlidesProgress: true
         });
     }
 
-    // Анимация для элементов при прокрутке (без библиотеки AOS)
+    // Оптимизированная анимация с определением видимости
     const animatedElements = document.querySelectorAll('.animate-fade-up, .animate-fade-in, .animate-slide-left, .animate-slide-right');
     
-    const animateOnScroll = function() {
-        animatedElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('in-view');
-            }
-        });
-    };
-    
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Запускаем один раз при загрузке страницы
-    
-    // Анимация для счетчиков
-    const counters = document.querySelectorAll('.counter-value');
-    
-    counters.forEach(counter => {
-        counter.textContent = '0';
+    // Оптимизированная анимация с IntersectionObserver вместо scroll event
+    if ('IntersectionObserver' in window && animatedElements.length > 0) {
+        const animateObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    // Отключаем наблюдение после применения анимации
+                    animateObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
         
-        const updateCounter = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.textContent;
-            
-            const increment = target / 200;
-            
-            if (count < target) {
-                counter.textContent = `${Math.ceil(count + increment)}`;
-                setTimeout(updateCounter, 10);
-            } else {
-                counter.textContent = target;
-            }
+        animatedElements.forEach(el => {
+            animateObserver.observe(el);
+        });
+    } else {
+        // Фолбэк для старых браузеров
+        const animateOnScroll = function() {
+            animatedElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('in-view');
+                }
+            });
         };
         
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                updateCounter();
-                observer.unobserve(entries[0].target);
+        // Оптимизированный слушатель прокрутки с троттлингом
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    animateOnScroll();
+                    ticking = false;
+                });
+                ticking = true;
             }
+        });
+        animateOnScroll(); // Запускаем один раз при загрузке страницы
+    }
+    
+    // Анимация для счетчиков с использованием IntersectionObserver
+    const counters = document.querySelectorAll('.counter-value');
+    
+    if (counters.length > 0) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    counter.textContent = '0';
+                    
+                    const updateCounter = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.textContent;
+                        
+                        const increment = target / 200;
+                        
+                        if (count < target) {
+                            counter.textContent = `${Math.ceil(count + increment)}`;
+                            setTimeout(updateCounter, 10);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
         }, { threshold: 0.5 });
         
-        observer.observe(counter);
-    });
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    }
 
     // Активация выпадающих меню Bootstrap
     var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
@@ -260,32 +304,174 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Функция для отложенной загрузки изображений
-    const lazyImages = document.querySelectorAll('.lazy-image');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy-image');
-                    imageObserver.unobserve(img);
+    // Ленивая загрузка изображений с использованием современных подходов
+    function setupLazyLoading() {
+        if ('loading' in HTMLImageElement.prototype) {
+            // Используем нативную ленивую загрузку
+            const lazyImages = document.querySelectorAll('img[data-src]:not([loading="lazy"])');
+            lazyImages.forEach(img => {
+                img.setAttribute('loading', 'lazy');
+                img.src = img.dataset.src;
+                if (img.dataset.srcset) {
+                    img.srcset = img.dataset.srcset;
                 }
+                // Добавляем класс для анимации появления
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                });
             });
-        });
+        } else {
+            // Имплементация ленивой загрузки через Intersection Observer
+            const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const lazyImage = entry.target;
+                        if (lazyImage.dataset.src) {
+                            lazyImage.src = lazyImage.dataset.src;
+                            if (lazyImage.dataset.srcset) {
+                                lazyImage.srcset = lazyImage.dataset.srcset;
+                            }
+                            lazyImage.classList.add('loaded');
+                            observer.unobserve(lazyImage);
+                        }
+                    }
+                });
+            }, { 
+                rootMargin: '200px 0px', // Загружаем немного заранее
+                threshold: 0.01 
+            });
+            
+            const lazyImages = document.querySelectorAll('img[data-src], .fade-in-image');
+            lazyImages.forEach(image => {
+                lazyImageObserver.observe(image);
+            });
+        }
+    }
+    
+    // Инициализация ленивой загрузки
+    setupLazyLoading();
+
+    // Оптимизация загрузки изображений для разных размеров экрана
+    function setupResponsiveImages() {
+        const images = document.querySelectorAll('img:not([srcset])');
         
-        lazyImages.forEach(img => {
-            imageObserver.observe(img);
-        });
-    } else {
-        // Запасной вариант для браузеров, которые не поддерживают IntersectionObserver
-        lazyImages.forEach(img => {
-            img.src = img.dataset.src;
-            img.classList.remove('lazy-image');
+        images.forEach(img => {
+            // Если изображение уже имеет атрибут srcset, пропускаем его
+            if (img.hasAttribute('srcset')) return;
+            
+            const src = img.src || img.dataset.src;
+            if (!src) return;
+            
+            // Получаем расширение файла
+            const extension = src.split('.').pop();
+            
+            // Если изображение без расширения или это заполнитель, пропускаем
+            if (!extension || src.includes('placeholder')) return;
+            
+            // Создаем различные размеры изображений (это примерная логика, нужна реальная обработка изображений)
+            // Для этого нужны заранее подготовленные изображения разных размеров
+            const basePath = src.substring(0, src.lastIndexOf('.'));
+            
+            // Добавляем атрибут sizes для оптимального выбора размера
+            img.sizes = '(max-width: 576px) 100vw, (max-width: 992px) 50vw, 33vw';
+            
+            // Если у изображения есть атрибут data-responsive="false", пропускаем его
+            if (img.dataset.responsive === 'false') return;
+            
+            // Устанавливаем decoding async для нестатичных изображений
+            if (!img.hasAttribute('decoding')) {
+                img.decoding = 'async';
+            }
+            
+            // Добавляем loading="lazy" для всех изображений, если еще не установлено
+            if (!img.hasAttribute('loading')) {
+                img.loading = 'lazy';
+            }
         });
     }
     
+    // Вызываем функцию настройки отзывчивых изображений
+    setupResponsiveImages();
+
+    // Оптимизация отзывчивости элементов на касание для мобильных устройств
+    function enhanceTouchInteractions() {
+        // Улучшаем сенсорное взаимодействие с кнопками
+        const touchTargets = document.querySelectorAll('button, a, .btn, .nav-link, .menu-link, .dropdown-item');
+        
+        touchTargets.forEach(target => {
+            // Добавляем стилизацию для активного состояния на тач-устройствах
+            target.addEventListener('touchstart', function() {
+                this.setAttribute('data-touch-active', 'true');
+            }, { passive: true });
+            
+            target.addEventListener('touchend', function() {
+                this.removeAttribute('data-touch-active');
+            }, { passive: true });
+            
+            // Убираем 300мс задержку на мобильных
+            target.style.touchAction = 'manipulation';
+        });
+        
+        // Улучшаем скроллинг на iOS
+        document.querySelectorAll('.menu-nav, .overflow-auto, .overflow-scroll').forEach(element => {
+            element.style.webkitOverflowScrolling = 'touch';
+        });
+    }
+    
+    // Применяем улучшения для тач-взаимодействий
+    enhanceTouchInteractions();
+    
+    // Оптимизируем производительность при прокрутке страницы
+    function optimizePageScroll() {
+        let scrollTimeout;
+        
+        window.addEventListener('scroll', function() {
+            // Добавляем класс для оптимизации во время прокрутки
+            document.body.classList.add('is-scrolling');
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                document.body.classList.remove('is-scrolling');
+            }, 100);
+        }, { passive: true }); // passive: true для улучшения производительности
+    }
+    
+    // Применяем оптимизации для прокрутки
+    optimizePageScroll();
+
+    // Оптимизированный обработчик resize для адаптивности
+    let resizeTimeout;
+    const handleWindowResize = () => {
+        // Обновление элементов при изменении размера окна
+        document.querySelectorAll('.equal-height').forEach(container => {
+            const cards = container.querySelectorAll('.card');
+            // Сброс высоты карточек
+            cards.forEach(card => card.style.height = '');
+            
+            // Установка одинаковой высоты только на планшетах и настольных компьютерах
+            if (window.innerWidth >= 768) {
+                // Отложенное выполнение для лучшей производительности
+                setTimeout(() => {
+                    let maxHeight = 0;
+                    cards.forEach(card => {
+                        maxHeight = Math.max(maxHeight, card.offsetHeight);
+                    });
+                    cards.forEach(card => {
+                        card.style.height = maxHeight + 'px';
+                    });
+                }, 100);
+            }
+        });
+    };
+    
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(handleWindowResize, 250);
+    });
+    
+    // Вызываем один раз при загрузке
+    window.addEventListener('load', handleWindowResize);
+
     // Добавляем плавные переходы между страницами
     const internalLinks = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])');
     

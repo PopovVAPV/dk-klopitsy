@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Добавляем класс glass к меню при загрузке страницы для немедленного применения эффекта
-    menu.classList.add('glass');
+    if (menu) {
+        menu.classList.add('glass');
+    }
     
     // Обеспечиваем правильное положение меню при загрузке страницы
     function updateMenuPosition() {
@@ -41,11 +43,22 @@ document.addEventListener('DOMContentLoaded', function() {
         menu.style.display = 'block';
     }
     
+    // Оптимизация обновления позиции меню с помощью debounce
+    let menuUpdateTimeout;
+    function debouncedUpdateMenuPosition() {
+        clearTimeout(menuUpdateTimeout);
+        menuUpdateTimeout = setTimeout(updateMenuPosition, 100);
+    }
+    
     // Вызываем функцию при загрузке
     updateMenuPosition();
     
     // Активация прозрачного меню при прокрутке с плавным переходом
-    window.addEventListener('scroll', function() {
+    // Оптимизируем обработку события scroll с помощью requestAnimationFrame
+    let lastKnownScrollPosition = 0;
+    let ticking = false;
+    
+    function handleMenuOnScroll(scrollPos) {
         if (!menu) return;
         
         // Проверяем видимость меню и принудительно отображаем его
@@ -53,67 +66,103 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.style.display = 'block';
         }
         
-        if (window.scrollY > 50) {
+        if (scrollPos > 50) {
             menu.classList.add('glass', 'menu-shrink');
         } else {
-            if (window.scrollY <= 5) {
+            if (scrollPos <= 5) {
                 menu.classList.remove('menu-shrink');
             }
         }
         
         // Показываем кнопку "Наверх" при прокрутке вниз
-        if (window.scrollY > 300) {
-            if (backToTop) backToTop.classList.add('visible');
-        } else {
-            if (backToTop) backToTop.classList.remove('visible');
+        if (backToTop) {
+            if (scrollPos > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+    }
+    
+    window.addEventListener('scroll', function() {
+        lastKnownScrollPosition = window.scrollY;
+        
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                handleMenuOnScroll(lastKnownScrollPosition);
+                ticking = false;
+            });
+            ticking = true;
         }
     });
     
     // Обновляем отступ при изменении размера окна
-    window.addEventListener('resize', function() {
-        updateMenuPosition();
-    });
+    window.addEventListener('resize', debouncedUpdateMenuPosition);
     
     // Обработка мобильного меню с улучшенной анимацией
     if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
-            menuNav.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-            
-            // Анимируем появление пунктов меню
-            if (menuNav.classList.contains('active')) {
-                const menuItems = document.querySelectorAll('.menu-nav .menu-item');
-                menuItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.opacity = 1;
-                        item.style.transform = 'translateX(0)';
-                    }, 100 * index);
-                });
-            } else {
-                const menuItems = document.querySelectorAll('.menu-nav .menu-item');
-                menuItems.forEach(item => {
-                    item.style.opacity = '';
-                    item.style.transform = '';
-                });
-            }
+        // Используем делегирование событий
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault(); // Предотвращаем скролл на мобильных устройствах
+            toggleMobileMenu();
+        });
+    }
+    
+    function toggleMobileMenu() {
+        if (!menuToggle || !menuNav || !menuOverlay) return;
+        
+        const isActive = menuToggle.classList.contains('active');
+        
+        if (isActive) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    }
+    
+    function openMobileMenu() {
+        menuToggle.classList.add('active');
+        menuNav.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.classList.add('menu-open');
+        document.body.style.overflow = 'hidden'; // Блокировка скролла
+        
+        // Анимируем появление пунктов меню
+        const menuItems = document.querySelectorAll('.menu-nav .menu-item');
+        menuItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.opacity = 1;
+                item.style.transform = 'translateX(0)';
+            }, 50 * index);
+        });
+    }
+    
+    function closeMobileMenu() {
+        menuToggle.classList.remove('active');
+        menuNav.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = ''; // Разблокировка скролла
+        
+        // Сбрасываем стили анимации пунктов меню
+        const menuItems = document.querySelectorAll('.menu-nav .menu-item');
+        menuItems.forEach(item => {
+            item.style.opacity = '';
+            item.style.transform = '';
         });
     }
     
     // Закрытие мобильного меню при клике вне его
     if (menuOverlay) {
-        menuOverlay.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            menuNav.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            
-            // Сбрасываем стили анимации пунктов меню
-            const menuItems = document.querySelectorAll('.menu-nav .menu-item');
-            menuItems.forEach(item => {
-                item.style.opacity = '';
-                item.style.transform = '';
+        menuOverlay.addEventListener('click', closeMobileMenu);
+    }
+    
+    // Закрытие меню при клике на пункт меню на мобильных
+    if (window.innerWidth <= 992) {
+        const menuLinks = document.querySelectorAll('.menu-link:not(.has-dropdown)');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
             });
         });
     }
