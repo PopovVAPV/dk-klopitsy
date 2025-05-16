@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание - ДК "Клопицы"</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS - Animate on scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Современное меню CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .fc-event {
+            cursor: pointer;
+            border: none !important;
+        }
+        .fc-event-title {
+            font-weight: 500;
+            padding: 2px 5px;
+        }
+        .fc-day-today {
+            background-color: rgba(245, 245, 220, 0.3) !important;
+        }
+        .fc-header-toolbar {
+            margin-bottom: 1.5em !important;
+        }
+        .fc-button-primary {
+            background-color: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+        }
+        .fc-button-primary:hover {
+            background-color: #6a0000 !important;
+            border-color: #6a0000 !important;
+        }
+        #calendar {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .schedule-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .schedule-table tr:nth-child(even) {
+            background-color: var(--bg-color);
+        }
+        .schedule-nav .nav-link.active {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Современное меню -->
+    <header class="modern-menu">
+        <div class="container menu-container">
+            <a href="index.html" class="menu-logo">
+                <div class="menu-logo-shield">
+                    <span>ДК</span>
+                </div>
+                <span class="menu-logo-text">Клопицы</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">Главная</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="about.html" class="menu-link">О нас</a>
+                    </li>
+                    <li class="menu-item has-dropdown">
+                        <a href="#" class="menu-link">Кружки и секции</a>
+                        <div class="menu-dropdown">
+                            <a href="clubs/music.html" class="dropdown-item">Музыка</a>
+                            <a href="clubs/dance.html" class="dropdown-item">Хореография</a>
+                            <a href="clubs/art.html" class="dropdown-item">ИЗО</a>
+                            <a href="clubs/circus.html" class="dropdown-item">Цирк</a>
+                            <a href="clubs/library.html" class="dropdown-item">Библиотека</a>
+                            <a href="clubs/chess.html" class="dropdown-item">Шахматный клуб</a>
+                        </div>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="schedule.html" class="menu-link">Расписание</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="events.html" class="menu-link">Мероприятия</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="services.html" class="menu-link">Платные услуги</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="contacts.html" class="menu-link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-actions">
+                <button class="menu-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="theme-slider">
+                        <i class="fas fa-moon theme-icon theme-icon-moon"></i>
+                        <i class="fas fa-sun theme-icon theme-icon-sun"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Поисковая панель -->
+        <div class="search-panel">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Что вы хотите найти?">
+                <button type="submit" class="search-btn">Поиск</button>
+            </form>
+            <button class="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Затемнение для мобильного меню -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Кнопка "Наверх" -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5 page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold">Расписание занятий</h1>
+                    <p class="lead">Время работы кружков и секций ДК "Клопицы"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule View Selection -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6 mx-auto">
+                    <ul class="nav nav-pills schedule-nav d-flex justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="pill" href="#table-view">Таблица</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#calendar-view">Календарь</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Table View -->
+                <div class="tab-pane fade show active" id="table-view">
+                    <div class="row">
+                        <div class="col-md-3 mb-4">
+                            <div class="list-group">
+                                <a class="list-group-item list-group-item-action active" href="#music-section">Музыкальные кружки</a>
+                                <a class="list-group-item list-group-item-action" href="#dance-section">Хореография</a>
+                                <a class="list-group-item list-group-item-action" href="#art-section">ИЗО</a>
+                                <a class="list-group-item list-group-item-action" href="#circus-section">Цирк</a>
+                                <a class="list-group-item list-group-item-action" href="#library-section">Библиотека</a>
+                                <a class="list-group-item list-group-item-action" href="#chess-section">Шахматный клуб</a>
+                            </div>
+                            
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Обратите внимание</h5>
+                                    <p class="card-text">Расписание может меняться в зависимости от проведения мероприятий и праздников.</p>
+                                    <p class="card-text">Для уточнения информации звоните по телефону: <br><strong>+7 (XXX) XXX-XX-XX</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-9">
+                            <!-- Музыкальные кружки -->
+                            <div id="music-section" class="mb-5">
+                                <h3 class="border-bottom pb-2 mb-4">Музыкальные кружки</h3>
+                                
+                                <table class="table table-bordered schedule-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Название</th>
+                                            <th>Руководитель</th>
+                                            <th>День недели</th>
+                                            <th>Время</th>
+                                            <th>Кабинет</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="coverdrive">
+                                            <td><a href="clubs/music.html#coverdrive">Coverdrive</a></td>
+                                            <td>Иванов И.И.</td>
+                                            <td>Вторник, Пятница</td>
+                                            <td>18:00 - 20:00</td>
+                                            <td>№5</td>
+                                        </tr>
+                                        <tr id="ovation">
+                                            <td><a href="clubs/music.html#ovation">ВИА "Овация"</a></td>
+                                            <td>Петров П.П.</td>
+                                            <td>Среда, Суббота</td>
+                                            <td>17:00 - 19:00</td>
+                                            <td>№5</td>
+                                        </tr>
+                                        <tr id="virtuosos">
+                                            <td><a href="clubs/music.html#virtuosos">ВИА "Виртуозы"</a></td>
+                                            <td>Сидоров С.С.</td>
+                                            <td>Вторник, Четверг</td>
+                                            <td>16:00 - 18:00</td>
+                                            <td>№5</td>
+                                        </tr>
+                                        <tr id="happy-notes">
+                                            <td><a href="clubs/music.html#happy-notes">Вокальный ансамбль "Весёлые нотки"</a></td>
+                                            <td>Кузнецова К.К.</td>
+                                            <td>Среда, Пятница</td>
+                                            <td>15:00 - 16:30</td>
+                                            <td>№4</td>
+                                        </tr>
+                                        <tr id="russian-harmonica">
+                                            <td><a href="clubs/music.html#russian-harmonica">"Русская гармоника"</a></td>
+                                            <td>Николаев Н.Н.</td>
+                                            <td>Четверг, Суббота</td>
+                                            <td>13:00 - 15:00</td>
+                                            <td>№4</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Хореография -->
+                            <div id="dance-section" class="mb-5">
+                                <h3 class="border-bottom pb-2 mb-4">Хореография</h3>
+                                
+                                <table class="table table-bordered schedule-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Название</th>
+                                            <th>Руководитель</th>
+                                            <th>День недели</th>
+                                            <th>Время</th>
+                                            <th>Кабинет</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="kiwi-dance">
+                                            <td><a href="clubs/dance.html#kiwi-dance">"Киви Дэнс"</a></td>
+                                            <td>Смирнова С.С.</td>
+                                            <td>Вторник, Четверг, Суббота</td>
+                                            <td>16:00 - 18:00</td>
+                                            <td>Зал хореографии</td>
+                                        </tr>
+                                        <tr id="knopochki">
+                                            <td><a href="clubs/dance.html#knopochki">"Кнопочки"</a></td>
+                                            <td>Смирнова С.С.</td>
+                                            <td>Вторник, Четверг</td>
+                                            <td>14:00 - 15:30</td>
+                                            <td>Зал хореографии</td>
+                                        </tr>
+                                        <tr id="karamelki">
+                                            <td><a href="clubs/dance.html#karamelki">"Карамельки"</a></td>
+                                            <td>Михайлова М.М.</td>
+                                            <td>Среда, Пятница</td>
+                                            <td>15:00 - 16:30</td>
+                                            <td>Зал хореографии</td>
+                                        </tr>
+                                        <tr id="veretentse">
+                                            <td><a href="clubs/dance.html#veretentse">"Веретёнце"</a></td>
+                                            <td>Михайлова М.М.</td>
+                                            <td>Среда, Пятница</td>
+                                            <td>17:00 - 18:30</td>
+                                            <td>Зал хореографии</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- ИЗО -->
+                            <div id="art-section" class="mb-5">
+                                <h3 class="border-bottom pb-2 mb-4">ИЗО</h3>
+                                
+                                <table class="table table-bordered schedule-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Название</th>
+                                            <th>Руководитель</th>
+                                            <th>День недели</th>
+                                            <th>Время</th>
+                                            <th>Кабинет</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="youngart">
+                                            <td><a href="clubs/art.html#youngart">Изостудия "Юный художник"</a></td>
+                                            <td>Васильева В.В.</td>
+                                            <td>Вторник, Четверг</td>
+                                            <td>15:00 - 16:30</td>
+                                            <td>№3</td>
+                                        </tr>
+                                        <tr id="palette">
+                                            <td><a href="clubs/art.html#palette">"Палитра"</a></td>
+                                            <td>Васильева В.В.</td>
+                                            <td>Среда, Пятница</td>
+                                            <td>16:00 - 18:00</td>
+                                            <td>№3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Цирк -->
+                            <div id="circus-section" class="mb-5">
+                                <h3 class="border-bottom pb-2 mb-4">Цирк</h3>
+                                
+                                <table class="table table-bordered schedule-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Название</th>
+                                            <th>Руководитель</th>
+                                            <th>День недели</th>
+                                            <th>Время</th>
+                                            <th>Кабинет</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="arena">
+                                            <td><a href="clubs/circus.html#arena">Цирковая студия "Арена"</a></td>
+                                            <td>Федоров Ф.Ф.</td>
+                                            <td>Вторник, Четверг, Суббота</td>
+                                            <td>17:00 - 19:00</td>
+                                            <td>Зал №2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Библиотека -->
+                            <div id="library-section" class="mb-5">
+                                <h3 class="border-bottom pb-2 mb-4">Библиотека</h3>
+                                
+                                <table class="table table-bordered schedule-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Название</th>
+                                            <th>Ответственный</th>
+                                            <th>День недели</th>
+                                            <th>Время</th>
+                                            <th>Место</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="library">
+                                            <td><a href="clubs/library.html">Библиотека ДК</a></td>
+                                            <td>Степанова С.С.</td>
+                                            <td>Вторник - Суббота</td>
+                                            <td>12:00 - 19:00</td>
+                                            <td>Библиотека</td>
+                                        </tr>
+                                        <tr id="book-club">
+                                            <td><a href="clubs/library.html#bookclub">Книжный клуб</a></td>
+                                            <td>Степанова С.С.</td>
+                                            <td>Четверг</td>
+                                            <td>17:00 - 18:30</td>
+                                            <td>Библиотека</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Шахматный клуб -->
+                            <div id="chess-section" class="mb-5">
+                                <h3 class="border-bottom pb-2 mb-4">Шахматный клуб</h3>
+                                
+                                <table class="table table-bordered schedule-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Название</th>
+                                            <th>Руководитель</th>
+                                            <th>День недели</th>
+                                            <th>Время</th>
+                                            <th>Кабинет</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="e2e4">
+                                            <td><a href="clubs/chess.html#e2e4">Шахматный клуб "E2-E4"</a></td>
+                                            <td>Королев К.К.</td>
+                                            <td>Среда, Суббота</td>
+                                            <td>15:00 - 17:00</td>
+                                            <td>№6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Calendar View -->
+                <div class="tab-pane fade" id="calendar-view">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="calendar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Хотите записаться в кружок?</h2>
+                    <p class="lead mb-4">Выберите интересующее вас направление и заполните форму записи. Мы свяжемся с вами для подтверждения!</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#enrollModal">Записаться в кружок</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Modal -->
+    <div class="modal fade" id="enrollModal" tabindex="-1" aria-labelledby="enrollModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="enrollModalLabel">Запись в кружок</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="enrollForm">
+                        <div class="mb-3">
+                            <label for="clubSelect" class="form-label">Выберите кружок</label>
+                            <select class="form-select" id="clubSelect" required>
+                                <option value="">Выберите кружок</option>
+                                <optgroup label="Музыка">
+                                    <option value="coverdrive">Coverdrive</option>
+                                    <option value="ovation">ВИА "Овация"</option>
+                                    <option value="virtuosos">ВИА "Виртуозы"</option>
+                                    <option value="happy-notes">Вокальный ансамбль "Весёлые нотки"</option>
+                                    <option value="russian-harmonica">"Русская гармоника"</option>
+                                </optgroup>
+                                <optgroup label="Хореография">
+                                    <option value="kiwi-dance">"Киви Дэнс"</option>
+                                    <option value="knopochki">"Кнопочки"</option>
+                                    <option value="karamelki">"Карамельки"</option>
+                                    <option value="veretentse">"Веретёнце"</option>
+                                </optgroup>
+                                <optgroup label="ИЗО">
+                                    <option value="youngart">Изостудия "Юный художник"</option>
+                                    <option value="palette">"Палитра"</option>
+                                </optgroup>
+                                <optgroup label="Цирк">
+                                    <option value="arena">Цирковая студия "Арена"</option>
+                                </optgroup>
+                                <optgroup label="Шахматы">
+                                    <option value="e2e4">Шахматный клуб "E2-E4"</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Фамилия, имя, отчество</label>
+                            <input type="text" class="form-control" id="nameInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ageInput" class="form-label">Возраст</label>
+                            <input type="number" class="form-control" id="ageInput" min="4" max="99" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneInput" class="form-label">Телефон для связи</label>
+                            <input type="tel" class="form-control" id="phoneInput" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="commentInput" class="form-label">Дополнительная информация</label>
+                            <textarea class="form-control" id="commentInput" rows="3"></textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="agreeCheck" required>
+                            <label class="form-check-label" for="agreeCheck">
+                                Я согласен на обработку персональных данных
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" id="submitEnroll">Отправить заявку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>ДК "Клопицы"</h5>
+                    <p>Культурный центр Клопицкого сельского поселения</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> д. Клопицы, д. 2-в</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (XXX) XXX-XX-XX</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dkklopitsy.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Соцсети</h5>
+                    <div class="social-links">
+                        <a href="https://vk.com/" class="text-white me-3" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="https://t.me/" class="text-white me-3" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ДК "Клопицы". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Современное меню JS -->
+    <script src="js/modern-menu.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Инициализация календаря
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'timeGridWeek',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                locale: 'ru',
+                weekNumbers: false,
+                navLinks: true,
+                editable: false,
+                dayMaxEvents: true,
+                slotMinTime: '12:00:00',
+                slotMaxTime: '21:00:00',
+                allDaySlot: false,
+                height: 'auto',
+                businessHours: {
+                    daysOfWeek: [1, 2, 3, 4, 5],
+                    startTime: '12:00',
+                    endTime: '20:00',
+                },
+                events: [
+                    // Музыкальные кружки
+                    {
+                        title: 'Coverdrive',
+                        daysOfWeek: [2, 5], // вторник, пятница
+                        startTime: '18:00',
+                        endTime: '20:00',
+                        backgroundColor: '#800000',
+                        url: 'clubs/music.html#coverdrive'
+                    },
+                    {
+                        title: 'ВИА "Овация"',
+                        daysOfWeek: [3, 6], // среда, суббота
+                        startTime: '17:00',
+                        endTime: '19:00',
+                        backgroundColor: '#800000',
+                        url: 'clubs/music.html#ovation'
+                    },
+                    {
+                        title: 'ВИА "Виртуозы"',
+                        daysOfWeek: [2, 4], // вторник, четверг
+                        startTime: '16:00',
+                        endTime: '18:00',
+                        backgroundColor: '#800000',
+                        url: 'clubs/music.html#virtuosos'
+                    },
+                    {
+                        title: '"Весёлые нотки"',
+                        daysOfWeek: [3, 5], // среда, пятница
+                        startTime: '15:00',
+                        endTime: '16:30',
+                        backgroundColor: '#800000',
+                        url: 'clubs/music.html#happy-notes'
+                    },
+                    {
+                        title: '"Русская гармоника"',
+                        daysOfWeek: [4, 6], // четверг, суббота
+                        startTime: '13:00',
+                        endTime: '15:00',
+                        backgroundColor: '#800000',
+                        url: 'clubs/music.html#russian-harmonica'
+                    },
+                    
+                    // Хореография
+                    {
+                        title: '"Киви Дэнс"',
+                        daysOfWeek: [2, 4, 6], // вторник, четверг, суббота
+                        startTime: '16:00',
+                        endTime: '18:00',
+                        backgroundColor: '#D4AF37',
+                        url: 'clubs/dance.html#kiwi-dance'
+                    },
+                    {
+                        title: '"Кнопочки"',
+                        daysOfWeek: [2, 4], // вторник, четверг
+                        startTime: '14:00',
+                        endTime: '15:30',
+                        backgroundColor: '#D4AF37',
+                        url: 'clubs/dance.html#knopochki'
+                    },
+                    
+                    // Остальные кружки
+                    {
+                        title: 'Шахматный клуб "E2-E4"',
+                        daysOfWeek: [3, 6], // среда, суббота
+                        startTime: '15:00',
+                        endTime: '17:00',
+                        backgroundColor: '#2c2c2c',
+                        url: 'clubs/chess.html#e2e4'
+                    }
+                ]
+            });
+            calendar.render();
+            
+            // Скролл к якорю при загрузке страницы
+            if (window.location.hash) {
+                const element = document.querySelector(window.location.hash);
+                if (element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({behavior: "smooth", block: "center"});
+                        element.classList.add('highlight');
+                    }, 1000);
+                }
+            }
+            
+            // Обработка клика по ссылкам в боковом меню
+            document.querySelectorAll('.list-group-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    document.querySelectorAll('.list-group-item').forEach(i => {
+                        i.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+
+            // Обработка отправки формы записи
+            document.getElementById('submitEnroll').addEventListener('click', function() {
+                const form = document.getElementById('enrollForm');
+                if (form.checkValidity()) {
+                    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('enrollModal'));
+                    modal.hide();
+                    form.reset();
+                } else {
+                    form.reportValidity();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

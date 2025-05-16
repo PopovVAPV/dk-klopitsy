@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - ДК "Клопицы"</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS - Animate on scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Современное меню CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Современное меню -->
+    <header class="modern-menu">
+        <div class="container menu-container">
+            <a href="index.html" class="menu-logo">
+                <div class="menu-logo-shield">
+                    <span>ДК</span>
+                </div>
+                <span class="menu-logo-text">Клопицы</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">Главная</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="about.html" class="menu-link">О нас</a>
+                    </li>
+                    <li class="menu-item has-dropdown">
+                        <a href="#" class="menu-link">Кружки и секции</a>
+                        <div class="menu-dropdown">
+                            <a href="clubs/music.html" class="dropdown-item">Музыка</a>
+                            <a href="clubs/dance.html" class="dropdown-item">Хореография</a>
+                            <a href="clubs/art.html" class="dropdown-item">ИЗО</a>
+                            <a href="clubs/circus.html" class="dropdown-item">Цирк</a>
+                            <a href="clubs/library.html" class="dropdown-item">Библиотека</a>
+                            <a href="clubs/chess.html" class="dropdown-item">Шахматный клуб</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="schedule.html" class="menu-link">Расписание</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="events.html" class="menu-link">Мероприятия</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="services.html" class="menu-link">Платные услуги</a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="contacts.html" class="menu-link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-actions">
+                <button class="menu-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="theme-slider">
+                        <i class="fas fa-moon theme-icon theme-icon-moon"></i>
+                        <i class="fas fa-sun theme-icon theme-icon-sun"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Поисковая панель -->
+        <div class="search-panel">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Что вы хотите найти?">
+                <button type="submit" class="search-btn">Поиск</button>
+            </form>
+            <button class="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Затемнение для мобильного меню -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Кнопка "Наверх" -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5 page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold">Контакты</h1>
+                    <p class="lead">Как с нами связаться и где нас найти</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info & Map -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <h2 class="mb-4">Контактная информация</h2>
+                    
+                    <div class="contact-info mb-4">
+                        <h4>Адрес</h4>
+                        <p class="mb-0"><i class="fas fa-map-marker-alt me-2 text-primary"></i> 188421, Ленинградская обл., Волосовский р-н, д. Клопицы, д. 2-в</p>
+                    </div>
+                    
+                    <div class="contact-info mb-4">
+                        <h4>Режим работы</h4>
+                        <p class="mb-2"><i class="fas fa-clock me-2 text-primary"></i> <strong>Понедельник:</strong> выходной</p>
+                        <p class="mb-2"><i class="fas fa-clock me-2 text-primary"></i> <strong>Вторник–Суббота:</strong> 12:00–20:00</p>
+                        <p class="mb-0"><i class="fas fa-clock me-2 text-primary"></i> <strong>Воскресенье:</strong> выходной</p>
+                    </div>
+                    
+                    <div class="contact-info mb-4">
+                        <h4>Телефоны</h4>
+                        <p class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> Администрация: +7 (XXX) XXX-XX-XX</p>
+                        <p class="mb-0"><i class="fas fa-phone me-2 text-primary"></i> Справочная: +7 (XXX) XXX-XX-XX</p>
+                    </div>
+                    
+                    <div class="contact-info mb-4">
+                        <h4>Электронная почта</h4>
+                        <p class="mb-0"><i class="fas fa-envelope me-2 text-primary"></i> info@dkklopitsy.ru</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h4>Мы в социальных сетях</h4>
+                        <div class="social-links mt-3">
+                            <a href="https://vk.com/" class="btn btn-outline-primary me-2" target="_blank"><i class="fab fa-vk me-2"></i> ВКонтакте</a>
+                            <a href="https://t.me/" class="btn btn-outline-primary" target="_blank"><i class="fab fa-telegram me-2"></i> Telegram</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="map-container rounded shadow-lg overflow-hidden">
+                        <!-- Яндекс Карта -->
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Acb69d79adce46af548499f9586d56fe0fc2a25ac3bc7f3f58cc76ef26e8adf9b&amp;source=constructor" width="100%" height="450" frameborder="0"></iframe>
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <a href="https://yandex.ru/maps/10975/leningrad-oblast/?ll=29.780573%2C59.510002&z=15" class="btn btn-outline-dark" target="_blank">
+                            <i class="fas fa-directions me-2"></i> Построить маршрут
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Feedback Form -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-center mb-4">Обратная связь</h2>
+                    <p class="text-center mb-5">Если у вас есть вопросы, предложения или пожелания, заполните форму ниже, и мы свяжемся с вами в ближайшее время.</p>
+                    
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <form id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="nameInput" class="form-label">Фамилия, имя, отчество <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="nameInput" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="emailInput" class="form-label">Email <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="emailInput" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phoneInput" class="form-label">Телефон</label>
+                                        <input type="tel" class="form-control" id="phoneInput" placeholder="+7 (___) ___-__-__">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="subjectInput" class="form-label">Тема обращения <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="subjectInput" required>
+                                            <option value="">Выберите тему</option>
+                                            <option value="question">Вопрос о работе ДК</option>
+                                            <option value="feedback">Отзыв о мероприятии</option>
+                                            <option value="suggestion">Предложение по улучшению</option>
+                                            <option value="cooperation">Сотрудничество</option>
+                                            <option value="other">Другое</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="messageInput" class="form-label">Сообщение <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="messageInput" rows="6" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="agreeCheck" required>
+                                            <label class="form-check-label" for="agreeCheck">
+                                                Я согласен на обработку персональных данных
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg px-5" id="submitForm">Отправить сообщение</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Contacts -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Руководство и персонал</h2>
+            
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <!-- Директор -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle overflow-hidden mx-auto mb-4" style="width: 150px; height: 150px;">
+                                <img src="images/staff/director.jpg" alt="Директор" class="img-fluid" onerror="this.src='https://via.placeholder.com/150x150/beige/800000?text=Директор'">
+                            </div>
+                            <h4 class="card-title">Иванова Анна Ивановна</h4>
+                            <p class="text-muted mb-3">Директор ДК "Клопицы"</p>
+                            <p class="card-text mb-3">Руководит Домом культуры с [год]. Заслуженный работник культуры Ленинградской области.</p>
+                            <p class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> +7 (XXX) XXX-XX-XX</p>
+                            <p class="mb-0"><i class="fas fa-envelope me-2 text-primary"></i> director@dkklopitsy.ru</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Художественный руководитель -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle overflow-hidden mx-auto mb-4" style="width: 150px; height: 150px;">
+                                <img src="images/staff/art-director.jpg" alt="Художественный руководитель" class="img-fluid" onerror="this.src='https://via.placeholder.com/150x150/beige/800000?text=Худрук'">
+                            </div>
+                            <h4 class="card-title">Петров Петр Петрович</h4>
+                            <p class="text-muted mb-3">Художественный руководитель</p>
+                            <p class="card-text mb-3">Отвечает за творческую деятельность ДК, организацию мероприятий и работу коллективов.</p>
+                            <p class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> +7 (XXX) XXX-XX-XX</p>
+                            <p class="mb-0"><i class="fas fa-envelope me-2 text-primary"></i> art@dkklopitsy.ru</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Администратор -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle overflow-hidden mx-auto mb-4" style="width: 150px; height: 150px;">
+                                <img src="images/staff/administrator.jpg" alt="Администратор" class="img-fluid" onerror="this.src='https://via.placeholder.com/150x150/beige/800000?text=Администратор'">
+                            </div>
+                            <h4 class="card-title">Сидорова Мария Сергеевна</h4>
+                            <p class="text-muted mb-3">Администратор</p>
+                            <p class="card-text mb-3">Координирует работу ДК, отвечает на вопросы посетителей, предоставляет информацию о мероприятиях.</p>
+                            <p class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> +7 (XXX) XXX-XX-XX</p>
+                            <p class="mb-0"><i class="fas fa-envelope me-2 text-primary"></i> admin@dkklopitsy.ru</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>ДК "Клопицы"</h5>
+                    <p>Культурный центр Клопицкого сельского поселения</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> д. Клопицы, д. 2-в</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (XXX) XXX-XX-XX</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dkklopitsy.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Соцсети</h5>
+                    <div class="social-links">
+                        <a href="https://vk.com/" class="text-white me-3" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="https://t.me/" class="text-white me-3" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ДК "Клопицы". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Современное меню JS -->
+    <script src="js/modern-menu.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Обработка отправки формы
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html> 

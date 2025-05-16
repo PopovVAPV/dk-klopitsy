@@ -1,0 +1,789 @@
+:root {
+    --primary-color: #800000; /* бордовый */
+    --secondary-color: #d4af37; /* золотой */
+    --bg-color: #f5f5dc; /* бежевый */
+    --dark-color: #2c2c2c;
+    --light-color: #f8f9fa;
+    --text-color: #333333;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: padding-top 0.3s ease;
+    padding-top: 70px; /* Минимальный отступ для меню */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Навигация */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-dark {
+    background-color: var(--dark-color) !important;
+}
+
+.text-gold {
+    color: var(--secondary-color) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-item.active .nav-link::after {
+    width: 80%;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.dropdown-item:hover, 
+.dropdown-item:focus {
+    background-color: rgba(212, 175, 55, 0.2);
+    color: var(--secondary-color);
+}
+
+/* Кнопки */
+.btn {
+    border-radius: 30px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    z-index: -2;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    border-radius: 30px;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.2);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #6a0000;
+    border-color: #6a0000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.3);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.2);
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-3px);
+}
+
+/* Секции */
+.hero-section {
+    padding: 5rem 0;
+    background-color: var(--bg-color);
+    position: relative;
+}
+
+.bg-light {
+    background-color: var(--bg-color) !important;
+}
+
+section {
+    position: relative;
+    padding: 80px 0;
+}
+
+section.wave-bg::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23800000"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23800000"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23800000"/></svg>') no-repeat center bottom;
+    background-size: cover;
+}
+
+/* Карточки событий */
+.event-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: none;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.event-card .card-img-top {
+    transition: all 0.5s ease;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.event-date {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(128, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.event-date .day {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: block;
+    line-height: 1;
+}
+
+.event-date .month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.card-body {
+    position: relative;
+    z-index: 1;
+    background: white;
+    padding: 1.5rem;
+}
+
+/* Карточки кружков */
+.club-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: none;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 100%;
+}
+
+.club-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.club-card .card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.club-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.club-card .card-body {
+    background: linear-gradient(to bottom, white, var(--bg-color));
+}
+
+.club-card .card-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.club-icon-circle {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    box-shadow: 0 5px 15px rgba(128, 0, 0, 0.2);
+}
+
+.club-card:hover .club-icon-circle {
+    background-color: var(--secondary-color);
+    transform: rotate(10deg);
+}
+
+/* Часы работы */
+.hours-list .list-group-item {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+.badge.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+/* Слайдер мероприятий */
+.swiper-container {
+    padding: 2rem 1rem;
+    overflow: hidden;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--primary-color);
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: var(--primary-color);
+}
+
+/* Анимация для элементов */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.animate-fade-in.in-view {
+    opacity: 1;
+}
+
+.animate-slide-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-slide-left.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-slide-right {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-slide-right.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color) !important;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%232c2c2c"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%232c2c2c"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%232c2c2c"/></svg>') no-repeat center top;
+    background-size: cover;
+}
+
+footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+footer .social-links a {
+    transition: all 0.3s ease;
+}
+
+footer .social-links a:hover {
+    transform: translateY(-5px);
+}
+
+/* Форма обратной связи */
+.contact-form .form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.contact-form .form-label {
+    font-weight: 500;
+}
+
+/* Расписание */
+.schedule-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: var(--bg-color);
+}
+
+.schedule-nav .nav-link.active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Страница события */
+.event-hero {
+    position: relative;
+    padding: 100px 0;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.event-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(44, 44, 44, 0.7), rgba(128, 0, 0, 0.7));
+}
+
+.event-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Меньший отступ для мобильных устройств */
+    }
+    
+    .hero-section {
+        padding: 3rem 0;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .event-card {
+        margin-bottom: 20px;
+    }
+
+    .event-date {
+        padding: 10px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .event-date .day {
+        font-size: 1.4rem;
+    }
+
+    .club-icon-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Для логотипа в виде щита */
+.logo-shield {
+    position: relative;
+    width: 200px;
+    height: 240px;
+    margin: 0 auto;
+    background-color: #ffff00;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid #cc0000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    color: #000;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.logo-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.logo-subtitle {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Лоадер для страницы */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--bg-color);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Добавляем плавные переходы для всего сайта */
+
+/* Плавный переход для всех элементов по умолчанию */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Плавное появление страницы */
+.fade-in-page {
+    animation: fadeInPage 0.5s ease forwards;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Плавное исчезновение страницы при переходе */
+.fade-out-page {
+    animation: fadeOutPage 0.3s ease forwards;
+}
+
+@keyframes fadeOutPage {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Эффекты для кнопок */
+.btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    width: 150%;
+    height: 150%;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффекты для карточек */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Эффекты для галереи */
+.gallery-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: block;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover {
+    opacity: 0.9;
+}
+
+/* Эффекты для ссылок */
+a:not(.btn):not(.nav-link):not(.menu-link):not(.dropdown-item):not(.gallery-item) {
+    position: relative;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+a:not(.btn):not(.nav-link):not(.menu-link):not(.dropdown-item):not(.gallery-item)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+a:not(.btn):not(.nav-link):not(.menu-link):not(.dropdown-item):not(.gallery-item):hover::after {
+    width: 100%;
+}
+
+/* Плавные эффекты для изображений */
+img {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Плавные переходы для полей формы */
+input, textarea, select {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.2) !important;
+}
+
+/* Плавные переходы для модальных окон */
+.modal {
+    transition: opacity 0.3s ease;
+}
+
+.modal-dialog {
+    transition: transform 0.3s ease;
+}
+
+.modal.fade .modal-dialog {
+    transform: translate(0, -50px);
+}
+
+.modal.show .modal-dialog {
+    transform: none;
+}
+
+/* Добавляем стили для появления элементов при прокрутке */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.animate-slide-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-slide-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.in-view {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Стили для заголовков страниц */
+.page-title {
+    margin-top: 20px;
+    margin-bottom: 40px;
+} 

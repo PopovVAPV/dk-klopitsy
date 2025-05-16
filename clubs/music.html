@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Музыкальная студия - ДК "Клопицы"</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS - Animate on scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Современное меню CSS -->
+    <link rel="stylesheet" href="../css/menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Современное меню -->
+    <header class="modern-menu">
+        <div class="container menu-container">
+            <a href="../index.html" class="menu-logo">
+                <div class="menu-logo-shield">
+                    <span>ДК</span>
+                </div>
+                <span class="menu-logo-text">Клопицы</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="../index.html" class="menu-link">Главная</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../about.html" class="menu-link">О нас</a>
+                    </li>
+                    <li class="menu-item has-dropdown active">
+                        <a href="#" class="menu-link">Кружки и секции</a>
+                        <div class="menu-dropdown">
+                            <a href="music.html" class="dropdown-item active">Музыка</a>
+                            <a href="dance.html" class="dropdown-item">Хореография</a>
+                            <a href="art.html" class="dropdown-item">ИЗО</a>
+                            <a href="circus.html" class="dropdown-item">Цирк</a>
+                            <a href="library.html" class="dropdown-item">Библиотека</a>
+                            <a href="chess.html" class="dropdown-item">Шахматный клуб</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../schedule.html" class="menu-link">Расписание</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../events.html" class="menu-link">Мероприятия</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../services.html" class="menu-link">Платные услуги</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../contacts.html" class="menu-link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-actions">
+                <button class="menu-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="theme-slider">
+                        <i class="fas fa-moon theme-icon theme-icon-moon"></i>
+                        <i class="fas fa-sun theme-icon theme-icon-sun"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Поисковая панель -->
+        <div class="search-panel">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Что вы хотите найти?">
+                <button type="submit" class="search-btn">Поиск</button>
+            </form>
+            <button class="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Затемнение для мобильного меню -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Кнопка "Наверх" -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5 page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold">Музыкальные кружки</h1>
+                    <p class="lead">Развитие вокальных и музыкальных талантов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Club Overview -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="lead">В нашем Доме культуры работают несколько музыкальных кружков и коллективов для разных возрастов. Каждый может найти направление по своим интересам и развивать свои таланты под руководством опытных педагогов.</p>
+                </div>
+            </div>
+
+            <!-- Coverdrive -->
+            <div class="row align-items-center mb-5 pb-5 border-bottom">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="../images/clubs/coverdrive.jpg" alt="Coverdrive" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Coverdrive'">
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="mb-3">Coverdrive</h2>
+                    <div class="mb-4">
+                        <span class="badge bg-primary mb-2">Возраст: 14-25 лет</span>
+                        <span class="badge bg-secondary mb-2">Руководитель: Иванов И.И.</span>
+                    </div>
+                    <p>Молодёжная кавер-группа, исполняющая популярные хиты в современной обработке. Участники кружка осваивают различные музыкальные инструменты, вокал и основы аранжировки.</p>
+                    <p>В репертуаре группы – современные российские и зарубежные хиты, адаптированные для исполнения молодёжным коллективом.</p>
+                    <h5 class="mt-4">Чему вы научитесь:</h5>
+                    <ul>
+                        <li>Игре на музыкальных инструментах (гитара, бас, ударные, клавишные)</li>
+                        <li>Основам вокала и работе с микрофоном</li>
+                        <li>Коллективному музицированию</li>
+                        <li>Сценическому движению и артистизму</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="../schedule.html#coverdrive" class="btn btn-outline-primary">Расписание занятий</a>
+                        <a href="#" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#enrollModal">Записаться</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ВИА "Овация" -->
+            <div class="row align-items-center mb-5 pb-5 border-bottom flex-row-reverse">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="../images/clubs/ovation.jpg" alt="ВИА Овация" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=ВИА+Овация'">
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="mb-3">ВИА "Овация"</h2>
+                    <div class="mb-4">
+                        <span class="badge bg-primary mb-2">Возраст: 18+</span>
+                        <span class="badge bg-secondary mb-2">Руководитель: Петров П.П.</span>
+                    </div>
+                    <p>Вокально-инструментальный ансамбль "Овация" – один из старейших коллективов нашего ДК. В репертуаре ансамбля – популярные песни советской и российской эстрады, народные песни в современной обработке.</p>
+                    <p>Коллектив регулярно выступает на районных и областных мероприятиях, является лауреатом многочисленных фестивалей.</p>
+                    <h5 class="mt-4">Направления работы:</h5>
+                    <ul>
+                        <li>Ансамблевое пение</li>
+                        <li>Сольный вокал</li>
+                        <li>Игра на музыкальных инструментах</li>
+                        <li>Подготовка концертных номеров</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="../schedule.html#ovation" class="btn btn-outline-primary">Расписание занятий</a>
+                        <a href="#" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#enrollModal">Записаться</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ВИА "Виртуозы" -->
+            <div class="row align-items-center mb-5 pb-5 border-bottom">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="../images/clubs/virtuosos.jpg" alt="ВИА Виртуозы" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=ВИА+Виртуозы'">
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="mb-3">ВИА "Виртуозы"</h2>
+                    <div class="mb-4">
+                        <span class="badge bg-primary mb-2">Возраст: 16-30 лет</span>
+                        <span class="badge bg-secondary mb-2">Руководитель: Сидоров С.С.</span>
+                    </div>
+                    <p>Молодёжный вокально-инструментальный ансамбль, исполняющий композиции разных жанров и стилей – от классики до современной музыки. В коллективе занимаются талантливые музыканты и вокалисты.</p>
+                    <p>Ансамбль активно участвует в концертах и фестивалях, имеет в своём арсенале множество авторских аранжировок.</p>
+                    <h5 class="mt-4">Занятия включают:</h5>
+                    <ul>
+                        <li>Обучение игре на различных инструментах</li>
+                        <li>Развитие вокальных данных</li>
+                        <li>Работу над сценическим образом</li>
+                        <li>Создание авторских аранжировок</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="../schedule.html#virtuosos" class="btn btn-outline-primary">Расписание занятий</a>
+                        <a href="#" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#enrollModal">Записаться</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вокальный ансамбль "Весёлые нотки" -->
+            <div class="row align-items-center mb-5 pb-5 border-bottom flex-row-reverse">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="../images/clubs/happy-notes.jpg" alt="Весёлые нотки" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Весёлые+нотки'">
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="mb-3">Вокальный ансамбль "Весёлые нотки"</h2>
+                    <div class="mb-4">
+                        <span class="badge bg-primary mb-2">Возраст: 6-12 лет</span>
+                        <span class="badge bg-secondary mb-2">Руководитель: Кузнецова К.К.</span>
+                    </div>
+                    <p>Детский вокальный ансамбль для самых маленьких любителей музыки. На занятиях дети в игровой форме знакомятся с основами музыкальной грамоты, развивают слух и голос, учатся выступать на сцене.</p>
+                    <p>Репертуар коллектива составляют детские песни, песни из мультфильмов и кинофильмов, адаптированные для детского исполнения.</p>
+                    <h5 class="mt-4">Программа занятий:</h5>
+                    <ul>
+                        <li>Постановка голоса и дыхания</li>
+                        <li>Развитие музыкального слуха</li>
+                        <li>Основы музыкальной грамоты</li>
+                        <li>Работа над артистизмом</li>
+                        <li>Участие в концертах и конкурсах</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="../schedule.html#happy-notes" class="btn btn-outline-primary">Расписание занятий</a>
+                        <a href="#" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#enrollModal">Записаться</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- "Русская гармоника" -->
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="../images/clubs/russian-harmonica.jpg" alt="Русская гармоника" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Русская+гармоника'">
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="mb-3">"Русская гармоника"</h2>
+                    <div class="mb-4">
+                        <span class="badge bg-primary mb-2">Возраст: любой</span>
+                        <span class="badge bg-secondary mb-2">Руководитель: Николаев Н.Н.</span>
+                    </div>
+                    <p>Коллектив, объединяющий любителей традиционной народной музыки. Участники кружка изучают народные мелодии, обучаются игре на гармони, баяне и аккордеоне, исполняют народные песни.</p>
+                    <p>В репертуаре – русские народные песни, частушки, наигрыши, танцевальные мелодии.</p>
+                    <h5 class="mt-4">На занятиях вы научитесь:</h5>
+                    <ul>
+                        <li>Основам игры на народных инструментах</li>
+                        <li>Исполнению народных песен</li>
+                        <li>Традиционным техникам игры</li>
+                        <li>Ансамблевому музицированию</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="../schedule.html#russian-harmonica" class="btn btn-outline-primary">Расписание занятий</a>
+                        <a href="#" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#enrollModal">Записаться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Modal -->
+    <div class="modal fade" id="enrollModal" tabindex="-1" aria-labelledby="enrollModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="enrollModalLabel">Запись в кружок</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="enrollForm">
+                        <div class="mb-3">
+                            <label for="clubSelect" class="form-label">Выберите кружок</label>
+                            <select class="form-select" id="clubSelect" required>
+                                <option value="">Выберите кружок</option>
+                                <option value="coverdrive">Coverdrive</option>
+                                <option value="ovation">ВИА "Овация"</option>
+                                <option value="virtuosos">ВИА "Виртуозы"</option>
+                                <option value="happy-notes">Вокальный ансамбль "Весёлые нотки"</option>
+                                <option value="russian-harmonica">"Русская гармоника"</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Фамилия, имя, отчество</label>
+                            <input type="text" class="form-control" id="nameInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ageInput" class="form-label">Возраст</label>
+                            <input type="number" class="form-control" id="ageInput" min="4" max="99" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneInput" class="form-label">Телефон для связи</label>
+                            <input type="tel" class="form-control" id="phoneInput" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="commentInput" class="form-label">Дополнительная информация</label>
+                            <textarea class="form-control" id="commentInput" rows="3"></textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="agreeCheck" required>
+                            <label class="form-check-label" for="agreeCheck">
+                                Я согласен на обработку персональных данных
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" id="submitEnroll">Отправить заявку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>ДК "Клопицы"</h5>
+                    <p>Культурный центр Клопицкого сельского поселения</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> д. Клопицы, д. 2-в</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (XXX) XXX-XX-XX</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dkklopitsy.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Соцсети</h5>
+                    <div class="social-links">
+                        <a href="https://vk.com/" class="text-white me-3" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="https://t.me/" class="text-white me-3" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ДК "Клопицы". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Современное меню JS -->
+    <script src="../js/modern-menu.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Modal submission handling
+        document.getElementById('submitEnroll').addEventListener('click', function() {
+            const form = document.getElementById('enrollForm');
+            if (form.checkValidity()) {
+                alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('enrollModal'));
+                modal.hide();
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДК "Клопицы" - Главная</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS - Animate on scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Современное меню CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Дополнительные стили для главной страницы */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-bg.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-logo {
+            max-width: 250px;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .club-category {
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            margin-bottom: 30px;
+        }
+        
+        .club-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .club-icon {
+            width: 120px;
+            height: 120px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .club-category:hover .club-icon {
+            background-color: var(--secondary-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .club-icon i {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .club-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .club-category:hover .club-icon::after {
+            left: 100%;
+        }
+        
+        .club-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        /* Новое меню-навигация */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(44, 44, 44, 0.95) !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .brand-logo {
+            width: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover .brand-logo {
+            transform: rotate(10deg);
+        }
+        
+        .nav-item {
+            position: relative;
+            margin: 0 5px;
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--secondary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after,
+        .nav-item.active .nav-link::after {
+            width: 80%;
+        }
+        
+        .events-slider {
+            padding: 40px 0;
+        }
+        
+        .event-card {
+            position: relative;
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+        
+        .event-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .event-card:hover .event-image {
+            transform: scale(1.1);
+        }
+        
+        .event-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .event-card:hover .event-overlay {
+            background: linear-gradient(to top, rgba(128, 0, 0, 0.9), transparent);
+        }
+        
+        .event-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .event-date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .counter-box {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .counter-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .counter-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .counter-text {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-logo {
+                max-width: 150px;
+            }
+        }
+
+        /* Анимация для логотипа */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Стилизация для логотипа-щита */
+        .logo-shield {
+            position: relative;
+            width: 250px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #ffff00;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 10px solid #cc0000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .logo-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .logo-subtitle {
+            font-size: 2rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Современное меню -->
+    <header class="modern-menu">
+        <div class="container menu-container">
+            <a href="index.html" class="menu-logo">
+                <div class="menu-logo-shield">
+                    <span>ДК</span>
+                </div>
+                <span class="menu-logo-text">Клопицы</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li class="menu-item active">
+                        <a href="index.html" class="menu-link">Главная</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="about.html" class="menu-link">О нас</a>
+                    </li>
+                    <li class="menu-item has-dropdown">
+                        <a href="#" class="menu-link">Кружки и секции</a>
+                        <div class="menu-dropdown">
+                            <a href="clubs/music.html" class="dropdown-item">Музыка</a>
+                            <a href="clubs/dance.html" class="dropdown-item">Хореография</a>
+                            <a href="clubs/art.html" class="dropdown-item">ИЗО</a>
+                            <a href="clubs/circus.html" class="dropdown-item">Цирк</a>
+                            <a href="clubs/library.html" class="dropdown-item">Библиотека</a>
+                            <a href="clubs/chess.html" class="dropdown-item">Шахматный клуб</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="schedule.html" class="menu-link">Расписание</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="events.html" class="menu-link">Мероприятия</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="services.html" class="menu-link">Платные услуги</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="contacts.html" class="menu-link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-actions">
+                <button class="menu-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Поисковая панель -->
+        <div class="search-panel">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Что вы хотите найти?">
+                <button type="submit" class="search-btn">Поиск</button>
+            </form>
+            <button class="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Затемнение для мобильного меню -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Кнопка "Наверх" -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero bg-dark text-white position-relative">
+            <div class="hero-bg"></div>
+            <div class="container position-relative">
+                <div class="row min-vh-100 align-items-center">
+                    <div class="col-lg-8 text-center text-lg-start py-5">
+                        <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInUp">Добро пожаловать<br>в Дом культуры "Клопицы"</h1>
+                        <p class="lead fs-4 mb-5 animate__animated animate__fadeInUp animate__delay-1s">Центр культуры и творчества Клопицкого сельского поселения</p>
+                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 animate__animated animate__fadeInUp animate__delay-2s">
+                            <a href="about.html" class="btn btn-primary btn-lg">О нас</a>
+                            <a href="events.html" class="btn btn-outline-light btn-lg">Афиша мероприятий</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold" data-aos="fade-up">Ближайшие мероприятия</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Афиша предстоящих событий в ДК "Клопицы"</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Event Card 1 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card event-card h-100 border-0">
+                            <div class="position-relative">
+                                <img src="images/events/event1.jpg" class="card-img-top" alt="Концерт" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Концерт'">
+                                <div class="event-date">
+                                    <span class="day">15</span>
+                                    <span class="month">Дек</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-primary rounded-pill px-3 py-2">Концерт</span>
+                                    <span class="text-muted"><i class="far fa-clock me-1"></i> 18:00</span>
+                                </div>
+                                <h5 class="card-title">Праздничный концерт "Зимние мелодии"</h5>
+                                <p class="card-text text-muted">Выступления творческих коллективов ДК, посвященные зимним праздникам.</p>
+                                <div class="d-flex justify-content-between mt-4">
+                                    <a href="events.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                                    <span class="text-success fw-bold">Вход свободный</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Card 2 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card event-card h-100 border-0">
+                            <div class="position-relative">
+                                <img src="images/events/event2.jpg" class="card-img-top" alt="Мастер-класс" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Мастер-класс'">
+                                <div class="event-date">
+                                    <span class="day">20</span>
+                                    <span class="month">Дек</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-primary rounded-pill px-3 py-2">Мастер-класс</span>
+                                    <span class="text-muted"><i class="far fa-clock me-1"></i> 16:00</span>
+                                </div>
+                                <h5 class="card-title">Мастер-класс "Новогодние украшения"</h5>
+                                <p class="card-text text-muted">Изготовление новогодних игрушек и украшений своими руками.</p>
+                                <div class="d-flex justify-content-between mt-4">
+                                    <a href="events.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                                    <span class="text-primary fw-bold">200 ₽</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Card 3 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card event-card h-100 border-0">
+                            <div class="position-relative">
+                                <img src="images/events/event3.jpg" class="card-img-top" alt="Спектакль" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Спектакль'">
+                                <div class="event-date">
+                                    <span class="day">25</span>
+                                    <span class="month">Дек</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-primary rounded-pill px-3 py-2">Спектакль</span>
+                                    <span class="text-muted"><i class="far fa-clock me-1"></i> 12:00</span>
+                                </div>
+                                <h5 class="card-title">Детский спектакль "Новогодняя сказка"</h5>
+                                <p class="card-text text-muted">Новогоднее представление для детей с участием Деда Мороза и Снегурочки.</p>
+                                <div class="d-flex justify-content-between mt-4">
+                                    <a href="events.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                                    <span class="text-primary fw-bold">300 ₽</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5" data-aos="fade-up">
+                    <a href="events.html" class="btn btn-outline-primary btn-lg">Смотреть все мероприятия</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clubs Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold" data-aos="fade-up">Кружки и секции</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Направления творческой деятельности в ДК "Клопицы"</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Club 1 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card club-card h-100 border-0 shadow-sm">
+                            <img src="images/clubs/dance.jpg" class="card-img-top" alt="Хореография" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Хореография'">
+                            <div class="card-body text-center p-4">
+                                <div class="club-icon">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <h3 class="card-title h4 mb-3">Хореография</h3>
+                                <p class="card-text">Танцевальные коллективы: Кнопочки, Киви Данс, Карамельки, Веретёнце.</p>
+                                <a href="clubs/dance.html" class="btn btn-outline-primary mt-3">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Club 2 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card club-card h-100 border-0 shadow-sm">
+                            <img src="images/clubs/art.jpg" class="card-img-top" alt="ИЗО" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=ИЗО'">
+                            <div class="card-body text-center p-4">
+                                <div class="club-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h3 class="card-title h4 mb-3">ИЗО студия</h3>
+                                <p class="card-text">Студия "Солнечный цвет": рисунок, живопись, декоративно-прикладное искусство.</p>
+                                <a href="clubs/art.html" class="btn btn-outline-primary mt-3">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Club 3 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card club-card h-100 border-0 shadow-sm">
+                            <img src="images/clubs/circus.jpg" class="card-img-top" alt="Цирковая студия" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Цирковая+студия'">
+                            <div class="card-body text-center p-4">
+                                <div class="club-icon">
+                                    <i class="fas fa-theater-masks"></i>
+                                </div>
+                                <h3 class="card-title h4 mb-3">Цирковая студия</h3>
+                                <p class="card-text">Студия "Арлекин": акробатика, жонглирование, клоунада, оригинальный жанр.</p>
+                                <a href="clubs/circus.html" class="btn btn-outline-primary mt-3">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Club 4 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card club-card h-100 border-0 shadow-sm">
+                            <img src="images/clubs/library.jpg" class="card-img-top" alt="Библиотека" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Библиотека'">
+                            <div class="card-body text-center p-4">
+                                <div class="club-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <h3 class="card-title h4 mb-3">Библиотека</h3>
+                                <p class="card-text">Литературные клубы, краеведение, детское чтение и творческие мастерские.</p>
+                                <a href="clubs/library.html" class="btn btn-outline-primary mt-3">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Club 5 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card club-card h-100 border-0 shadow-sm">
+                            <img src="images/clubs/music.jpg" class="card-img-top" alt="Музыка" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Музыка'">
+                            <div class="card-body text-center p-4">
+                                <div class="club-icon">
+                                    <i class="fas fa-guitar"></i>
+                                </div>
+                                <h3 class="card-title h4 mb-3">Музыкальная студия</h3>
+                                <p class="card-text">Вокал, хоровое пение, обучение игре на музыкальных инструментах.</p>
+                                <a href="clubs/music.html" class="btn btn-outline-primary mt-3">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Club 6 -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                        <div class="card club-card h-100 border-0 shadow-sm">
+                            <img src="images/clubs/chess.jpg" class="card-img-top" alt="Шахматы" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Шахматы'">
+                            <div class="card-body text-center p-4">
+                                <div class="club-icon">
+                                    <i class="fas fa-chess"></i>
+                                </div>
+                                <h3 class="card-title h4 mb-3">Шахматный клуб</h3>
+                                <p class="card-text">Обучение игре в шахматы для детей и взрослых, шахматные турниры.</p>
+                                <a href="clubs/chess.html" class="btn btn-outline-primary mt-3">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                        <h2 class="display-5 fw-bold mb-4">Культурный центр Клопицкого СП</h2>
+                        <p class="lead mb-4">Дом культуры "Клопицы" — это современный культурно-досуговый центр для жителей всех возрастов.</p>
+                        <p class="mb-4">В нашем Доме культуры созданы все условия для творческого развития, культурного досуга и отдыха, проведения праздников и мероприятий. На базе ДК работают различные творческие коллективы, клубы по интересам, проводятся концерты, выставки, спектакли.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="feature">
+                                <i class="fas fa-users feature-icon"></i>
+                                <span>15+ кружков и секций</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-calendar-alt feature-icon"></i>
+                                <span>100+ мероприятий в год</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-medal feature-icon"></i>
+                                <span>Лауреаты конкурсов</span>
+                            </div>
+                        </div>
+                        <a href="about.html" class="btn btn-primary mt-4">Узнать больше</a>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="position-relative">
+                            <img src="images/dk-building.jpg" alt="Здание ДК" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Здание+ДК'">
+                            <div class="feature-badge">
+                                <span>с 1986 года</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up">
+                        <h3 class="h5 mb-4">Расписание</h3>
+                        <p>Ознакомьтесь с актуальным расписанием занятий и мероприятий ДК "Клопицы".</p>
+                        <a href="schedule.html" class="btn btn-outline-light btn-sm">Смотреть расписание</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="h5 mb-4">Платные услуги</h3>
+                        <p>Информация о платных услугах, стоимости занятий и аренде помещений.</p>
+                        <a href="services.html" class="btn btn-outline-light btn-sm">Подробнее об услугах</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="h5 mb-4">Контакты</h3>
+                        <p>Адрес, телефон и электронная почта для связи с администрацией ДК.</p>
+                        <a href="contacts.html" class="btn btn-outline-light btn-sm">Наши контакты</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="h5 mb-4">Галерея</h3>
+                        <p>Фотографии с прошедших мероприятий, выступлений и праздников.</p>
+                        <a href="gallery.html" class="btn btn-outline-light btn-sm">Смотреть галерею</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center" data-aos="fade-up">
+                        <h2 class="display-6 fw-bold mb-4">Будьте в курсе событий</h2>
+                        <p class="lead mb-5">Подпишитесь на нашу рассылку, чтобы получать анонсы мероприятий и новости ДК "Клопицы"</p>
+                        <div class="newsletter-form">
+                            <form>
+                                <div class="input-group">
+                                    <input type="email" class="form-control form-control-lg" placeholder="Ваш email" required>
+                                    <button class="btn btn-primary btn-lg" type="submit">Подписаться</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-3">ДК "Клопицы"</h5>
+                    <p>Культурный центр Клопицкого сельского поселения</p>
+                    <div class="mt-3">
+                        <a href="https://vk.com/" class="text-white me-3" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="https://t.me/" class="text-white me-3" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> д. Клопицы, д. 2-в</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (XXX) XXX-XX-XX</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dkklopitsy.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Режим работы</h5>
+                    <p><i class="fas fa-clock me-2"></i> <strong>Вторник–Суббота:</strong> 12:00–20:00</p>
+                    <p><i class="fas fa-exclamation-circle me-2"></i> <strong>Понедельник, Воскресенье:</strong> выходной</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ДК "Клопицы". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Современное меню JS -->
+    <script src="js/modern-menu.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Инициализация AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

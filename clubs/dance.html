@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хореография - ДК "Клопицы"</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS - Animate on scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Современное меню CSS -->
+    <link rel="stylesheet" href="../css/menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Современное меню -->
+    <header class="modern-menu">
+        <div class="container menu-container">
+            <a href="../index.html" class="menu-logo">
+                <div class="menu-logo-shield">
+                    <span>ДК</span>
+                </div>
+                <span class="menu-logo-text">Клопицы</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="../index.html" class="menu-link">Главная</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../about.html" class="menu-link">О нас</a>
+                    </li>
+                    <li class="menu-item has-dropdown active">
+                        <a href="#" class="menu-link">Кружки и секции</a>
+                        <div class="menu-dropdown">
+                            <a href="music.html" class="dropdown-item">Музыка</a>
+                            <a href="dance.html" class="dropdown-item active">Хореография</a>
+                            <a href="art.html" class="dropdown-item">ИЗО</a>
+                            <a href="circus.html" class="dropdown-item">Цирк</a>
+                            <a href="library.html" class="dropdown-item">Библиотека</a>
+                            <a href="chess.html" class="dropdown-item">Шахматный клуб</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../schedule.html" class="menu-link">Расписание</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../events.html" class="menu-link">Мероприятия</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../services.html" class="menu-link">Платные услуги</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../contacts.html" class="menu-link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-actions">
+                <button class="menu-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="theme-slider">
+                        <i class="fas fa-moon theme-icon theme-icon-moon"></i>
+                        <i class="fas fa-sun theme-icon theme-icon-sun"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Поисковая панель -->
+        <div class="search-panel">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Что вы хотите найти?">
+                <button type="submit" class="search-btn">Поиск</button>
+            </form>
+            <button class="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Затемнение для мобильного меню -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Кнопка "Наверх" -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5 page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold">Хореография</h1>
+                    <p class="lead">Танцевальные коллективы и студии</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="../images/clubs/dance-main.jpg" alt="Хореография" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Хореография'">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="mb-4">Танцевальное искусство</h2>
+                    <p class="lead mb-4">Хореографические коллективы ДК "Клопицы" — это прекрасная возможность для развития пластики, музыкальности и творческого потенциала.</p>
+                    <p>Наши участники изучают различные танцевальные направления: народные, современные, классические танцы. Регулярное участие в концертах и конкурсах позволяет ребятам совершенствовать свое мастерство и получать заслуженное признание.</p>
+                    <p>Приглашаем всех желающих присоединиться к нашим танцевальным коллективам!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dance Groups Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Наши коллективы</h2>
+
+            <!-- Кнопочки -->
+            <div class="row align-items-center mb-5" data-aos="fade-up">
+                <div class="col-lg-5 mb-4 mb-lg-0 order-lg-2">
+                    <div class="position-relative overflow-hidden rounded shadow-lg">
+                        <img src="../images/clubs/dance-knopochki.jpg" alt="Кнопочки" class="img-fluid" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Кнопочки'">
+                        <div class="position-absolute top-0 start-0 p-3 bg-primary text-white">
+                            <span class="fw-bold">5-7 лет</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 order-lg-1" data-aos="fade-left">
+                    <h3 class="text-primary">Кнопочки</h3>
+                    <p class="lead fw-bold">Младшая танцевальная группа</p>
+                    <p>Танцевальный коллектив "Кнопочки" для самых маленьких участников от 5 до 7 лет. Здесь дети делают первые шаги в мире танца, развивают координацию движений, чувство ритма и музыкальность.</p>
+                    <p>В программе занятий:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Ритмика и танцевальная гимнастика</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Основы хореографии</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Танцевальные игры</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Постановка танцевальных номеров</li>
+                    </ul>
+                    <p class="mt-3"><strong>Руководитель:</strong> Семёнова Надежда Михайловна</p>
+                </div>
+            </div>
+
+            <!-- Киви Данс -->
+            <div class="row align-items-center mb-5" data-aos="fade-up">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="position-relative overflow-hidden rounded shadow-lg">
+                        <img src="../images/clubs/dance-kiwi.jpg" alt="Киви Данс" class="img-fluid" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Киви+Данс'">
+                        <div class="position-absolute top-0 start-0 p-3 bg-primary text-white">
+                            <span class="fw-bold">8-12 лет</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-right">
+                    <h3 class="text-primary">Киви Данс</h3>
+                    <p class="lead fw-bold">Танцевальный коллектив современного танца</p>
+                    <p>"Киви Данс" — это яркий, динамичный коллектив для детей 8-12 лет. Участники изучают основы современной хореографии, хип-хопа и других популярных танцевальных направлений.</p>
+                    <p>В программе занятий:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Современная хореография</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Элементы хип-хопа и стрит-данса</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Постановка танцевальных номеров</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Участие в концертах и конкурсах</li>
+                    </ul>
+                    <p class="mt-3"><strong>Руководитель:</strong> Семёнова Надежда Михайловна</p>
+                </div>
+            </div>
+
+            <!-- Карамельки -->
+            <div class="row align-items-center mb-5" data-aos="fade-up">
+                <div class="col-lg-5 mb-4 mb-lg-0 order-lg-2">
+                    <div class="position-relative overflow-hidden rounded shadow-lg">
+                        <img src="../images/clubs/dance-karamelki.jpg" alt="Карамельки" class="img-fluid" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Карамельки'">
+                        <div class="position-absolute top-0 start-0 p-3 bg-primary text-white">
+                            <span class="fw-bold">7-9 лет</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 order-lg-1" data-aos="fade-left">
+                    <h3 class="text-primary">Карамельки</h3>
+                    <p class="lead fw-bold">Детский танцевальный коллектив</p>
+                    <p>"Карамельки" — это коллектив для детей 7-9 лет, где участники изучают основы эстрадного и народного танца, развивают пластику и артистизм.</p>
+                    <p>В программе занятий:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Основы классического танца</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Элементы народного танца</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Эстрадная хореография</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Развитие пластики и артистизма</li>
+                    </ul>
+                    <p class="mt-3"><strong>Руководители:</strong> Семёнова Надежда Михайловна, Вязкова Светлана Юрьевна</p>
+                </div>
+            </div>
+
+            <!-- Веретёнце -->
+            <div class="row align-items-center" data-aos="fade-up">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="position-relative overflow-hidden rounded shadow-lg">
+                        <img src="../images/clubs/dance-veretence.jpg" alt="Веретёнце" class="img-fluid" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Веретёнце'">
+                        <div class="position-absolute top-0 start-0 p-3 bg-primary text-white">
+                            <span class="fw-bold">10-14 лет</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-right">
+                    <h3 class="text-primary">Веретёнце</h3>
+                    <p class="lead fw-bold">Коллектив народного танца</p>
+                    <p>"Веретёнце" — это коллектив, где участники 10-14 лет изучают богатство народной хореографии, знакомятся с традициями народного танца и развивают исполнительское мастерство.</p>
+                    <p>В программе занятий:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Русский народный танец</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Танцы народов мира</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Постановка танцевальных композиций</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Работа с народным костюмом</li>
+                    </ul>
+                    <p class="mt-3"><strong>Руководитель:</strong> Вязкова Светлана Юрьевна</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="mb-4">Запишитесь на занятия</h2>
+                    <p class="lead mb-5">Присоединяйтесь к нашим танцевальным коллективам и раскройте свой творческий потенциал!</p>
+                    
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <form class="contact-form">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Имя и фамилия</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="age" class="form-label">Возраст</label>
+                                        <input type="number" class="form-control" id="age" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Телефон</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="dance-group" class="form-label">Выберите коллектив</label>
+                                        <select class="form-select" id="dance-group" required>
+                                            <option value="" selected disabled>Выберите коллектив</option>
+                                            <option value="knopochki">Кнопочки (5-7 лет)</option>
+                                            <option value="kiwi">Киви Данс (8-12 лет)</option>
+                                            <option value="karamelki">Карамельки (7-9 лет)</option>
+                                            <option value="veretence">Веретёнце (10-14 лет)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Дополнительная информация</label>
+                                        <textarea class="form-control" id="message" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">Отправить заявку</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5" data-aos="fade-up">
+                    <h2 class="mb-4">Расписание занятий</h2>
+                    <p class="lead">Ознакомьтесь с расписанием занятий наших танцевальных коллективов</p>
+                </div>
+            </div>
+            
+            <div class="table-responsive" data-aos="fade-up">
+                <table class="table table-striped schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Коллектив</th>
+                            <th>Понедельник</th>
+                            <th>Вторник</th>
+                            <th>Среда</th>
+                            <th>Четверг</th>
+                            <th>Пятница</th>
+                            <th>Суббота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Кнопочки</strong></td>
+                            <td>16:00-17:00</td>
+                            <td>-</td>
+                            <td>16:00-17:00</td>
+                            <td>-</td>
+                            <td>16:00-17:00</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Киви Данс</strong></td>
+                            <td>-</td>
+                            <td>17:00-18:30</td>
+                            <td>-</td>
+                            <td>17:00-18:30</td>
+                            <td>-</td>
+                            <td>11:00-12:30</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Карамельки</strong></td>
+                            <td>17:30-18:30</td>
+                            <td>-</td>
+                            <td>17:30-18:30</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>13:00-14:00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Веретёнце</strong></td>
+                            <td>-</td>
+                            <td>16:00-17:30</td>
+                            <td>-</td>
+                            <td>16:00-17:30</td>
+                            <td>17:30-19:00</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="../schedule.html" class="btn btn-outline-primary">Полное расписание ДК</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Галерея</h2>
+            
+            <div class="row g-4" data-aos="fade-up">
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/dance-gallery1.jpg" class="gallery-item">
+                        <img src="../images/clubs/dance-gallery1.jpg" alt="Выступление" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Выступление'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/dance-gallery2.jpg" class="gallery-item">
+                        <img src="../images/clubs/dance-gallery2.jpg" alt="Репетиция" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Репетиция'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/dance-gallery3.jpg" class="gallery-item">
+                        <img src="../images/clubs/dance-gallery3.jpg" alt="Награждение" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Награждение'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/dance-gallery4.jpg" class="gallery-item">
+                        <img src="../images/clubs/dance-gallery4.jpg" alt="Участники" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Участники'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/dance-gallery5.jpg" class="gallery-item">
+                        <img src="../images/clubs/dance-gallery5.jpg" alt="Концерт" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Концерт'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/dance-gallery6.jpg" class="gallery-item">
+                        <img src="../images/clubs/dance-gallery6.jpg" alt="Конкурс" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Конкурс'">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-3">ДК "Клопицы"</h5>
+                    <p>Культурный центр Клопицкого сельского поселения</p>
+                    <div class="mt-3">
+                        <a href="https://vk.com/" class="text-white me-3" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="https://t.me/" class="text-white me-3" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> д. Клопицы, д. 2-в</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (XXX) XXX-XX-XX</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dkklopitsy.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Режим работы</h5>
+                    <p><i class="fas fa-clock me-2"></i> <strong>Вторник–Суббота:</strong> 12:00–20:00</p>
+                    <p><i class="fas fa-exclamation-circle me-2"></i> <strong>Понедельник, Воскресенье:</strong> выходной</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ДК "Клопицы". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Современное меню JS -->
+    <script src="../js/modern-menu.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    
+    <script>
+        // Инициализация AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html> 

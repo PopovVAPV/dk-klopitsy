@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мероприятия - ДК "Клопицы"</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS - Animate on scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Современное меню CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Современное меню -->
+    <header class="modern-menu">
+        <div class="container menu-container">
+            <a href="index.html" class="menu-logo">
+                <div class="menu-logo-shield">
+                    <span>ДК</span>
+                </div>
+                <span class="menu-logo-text">Клопицы</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">Главная</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="about.html" class="menu-link">О нас</a>
+                    </li>
+                    <li class="menu-item has-dropdown">
+                        <a href="#" class="menu-link">Кружки и секции</a>
+                        <div class="menu-dropdown">
+                            <a href="clubs/music.html" class="dropdown-item">Музыка</a>
+                            <a href="clubs/dance.html" class="dropdown-item">Хореография</a>
+                            <a href="clubs/art.html" class="dropdown-item">ИЗО</a>
+                            <a href="clubs/circus.html" class="dropdown-item">Цирк</a>
+                            <a href="clubs/library.html" class="dropdown-item">Библиотека</a>
+                            <a href="clubs/chess.html" class="dropdown-item">Шахматный клуб</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="schedule.html" class="menu-link">Расписание</a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="events.html" class="menu-link">Мероприятия</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="services.html" class="menu-link">Платные услуги</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="contacts.html" class="menu-link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-actions">
+                <button class="menu-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="theme-slider">
+                        <i class="fas fa-moon theme-icon theme-icon-moon"></i>
+                        <i class="fas fa-sun theme-icon theme-icon-sun"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Поисковая панель -->
+        <div class="search-panel">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Что вы хотите найти?">
+                <button type="submit" class="search-btn">Поиск</button>
+            </form>
+            <button class="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Затемнение для мобильного меню -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Кнопка "Наверх" -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5 page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold">Мероприятия</h1>
+                    <p class="lead">Афиша мероприятий ДК "Клопицы"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Filter Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h5 class="mb-3">Фильтр мероприятий</h5>
+                            <div class="row g-3">
+                                <div class="col-md-5">
+                                    <label for="event-category" class="form-label">Категория</label>
+                                    <select class="form-select" id="event-category">
+                                        <option value="all" selected>Все категории</option>
+                                        <option value="concerts">Концерты</option>
+                                        <option value="exhibitions">Выставки</option>
+                                        <option value="festivals">Фестивали</option>
+                                        <option value="kids">Детские</option>
+                                        <option value="workshops">Мастер-классы</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="event-month" class="form-label">Месяц</label>
+                                    <select class="form-select" id="event-month">
+                                        <option value="all" selected>Все месяцы</option>
+                                        <option value="01">Январь</option>
+                                        <option value="02">Февраль</option>
+                                        <option value="03">Март</option>
+                                        <option value="04">Апрель</option>
+                                        <option value="05">Май</option>
+                                        <option value="06">Июнь</option>
+                                        <option value="07">Июль</option>
+                                        <option value="08">Август</option>
+                                        <option value="09">Сентябрь</option>
+                                        <option value="10">Октябрь</option>
+                                        <option value="11">Ноябрь</option>
+                                        <option value="12">Декабрь</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label d-block">&nbsp;</label>
+                                    <button type="button" class="btn btn-primary w-100">Показать</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Events -->
+            <h2 class="text-center mb-4" data-aos="fade-up">Ближайшие мероприятия</h2>
+            
+            <div class="row" data-aos="fade-up">
+                <!-- Event 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card event-card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="images/events/event1.jpg" class="card-img-top" alt="Концерт народной музыки" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Концерт'">
+                            <div class="event-date">
+                                <span class="day">12</span>
+                                <span class="month">Дек</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-primary rounded-pill px-3 py-2">Концерт</span>
+                                <span class="text-muted"><i class="far fa-clock me-1"></i> 18:00</span>
+                            </div>
+                            <h5 class="card-title">Концерт народной музыки</h5>
+                            <p class="card-text text-muted">Выступление ансамбля русской гармоники и фольклорных коллективов района.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                <span>Большой зал ДК "Клопицы"</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="#" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                                <span class="text-success fw-bold">Вход свободный</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card event-card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="images/events/event2.jpg" class="card-img-top" alt="Детский утренник" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Утренник'">
+                            <div class="event-date">
+                                <span class="day">20</span>
+                                <span class="month">Дек</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-primary rounded-pill px-3 py-2">Детское</span>
+                                <span class="text-muted"><i class="far fa-clock me-1"></i> 11:00</span>
+                            </div>
+                            <h5 class="card-title">Детский утренник "Зимняя сказка"</h5>
+                            <p class="card-text text-muted">Интерактивное представление для детей с играми, конкурсами и подарками.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                <span>Малый зал ДК "Клопицы"</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="#" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                                <span class="text-danger fw-bold">Билет: 100 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card event-card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="images/events/event3.jpg" class="card-img-top" alt="Новогодний карнавал" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Карнавал'">
+                            <div class="event-date">
+                                <span class="day">28</span>
+                                <span class="month">Дек</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-primary rounded-pill px-3 py-2">Праздник</span>
+                                <span class="text-muted"><i class="far fa-clock me-1"></i> 19:00</span>
+                            </div>
+                            <h5 class="card-title">Новогодний карнавал</h5>
+                            <p class="card-text text-muted">Праздничное мероприятие для всей семьи с костюмированным шоу, дискотекой и фуршетом.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                <span>Большой зал ДК "Клопицы"</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="#" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                                <span class="text-danger fw-bold">Билет: 300 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 4 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card event-card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="images/events/event4.jpg" class="card-img-top" alt="Выставка юных художников" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Выставка'">
+                            <div class="event-date">
+                                <span class="day">15</span>
+                                <span class="month">Янв</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-primary rounded-pill px-3 py-2">Выставка</span>
+                                <span class="text-muted"><i class="far fa-clock me-1"></i> 10:00</span>
+                            </div>
+                            <h5 class="card-title">Выставка юных художников "Зимние фантазии"</h5>
+                            <p class="card-text text-muted">Экспозиция работ участников ИЗО-студии ДК "Клопицы".</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                <span>Выставочный зал ДК "Клопицы"</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="#" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                                <span class="text-success fw-bold">Вход свободный</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 5 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card event-card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="images/events/event5.jpg" class="card-img-top" alt="Мастер-класс по рукоделию" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Мастер-класс'">
+                            <div class="event-date">
+                                <span class="day">22</span>
+                                <span class="month">Янв</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-primary rounded-pill px-3 py-2">Мастер-класс</span>
+                                <span class="text-muted"><i class="far fa-clock me-1"></i> 15:00</span>
+                            </div>
+                            <h5 class="card-title">Мастер-класс по народному рукоделию</h5>
+                            <p class="card-text text-muted">Практическое занятие по традиционным техникам рукоделия для взрослых и детей от 10 лет.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                <span>Творческая мастерская ДК "Клопицы"</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="#" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                                <span class="text-danger fw-bold">Билет: 150 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 6 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card event-card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="images/events/event6.jpg" class="card-img-top" alt="Фестиваль Дружба народов" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Фестиваль'">
+                            <div class="event-date">
+                                <span class="day">5</span>
+                                <span class="month">Фев</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-primary rounded-pill px-3 py-2">Фестиваль</span>
+                                <span class="text-muted"><i class="far fa-clock me-1"></i> 12:00</span>
+                            </div>
+                            <h5 class="card-title">Фестиваль "Дружба народов"</h5>
+                            <p class="card-text text-muted">Ежегодный фестиваль культуры и традиций народов, проживающих в Волосовском районе.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                <span>Большой зал ДК "Клопицы"</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="#" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                                <span class="text-success fw-bold">Вход свободный</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-4" data-aos="fade-up">
+                <button class="btn btn-outline-primary btn-lg">Показать больше мероприятий</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Regular Events Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Регулярные мероприятия</h2>
+            
+            <div class="row g-4" data-aos="fade-up">
+                <!-- Regular Event 1 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-film fa-xl text-white"></i>
+                                </div>
+                                <h5 class="mb-0 fw-bold">Киносеансы</h5>
+                            </div>
+                            <p class="card-text">Каждую субботу и воскресенье в нашем кинозале проходят показы популярных фильмов для зрителей всех возрастов.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                <span>Суббота, Воскресенье</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                <span>14:00, 17:00, 19:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regular Event 2 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-music fa-xl text-white"></i>
+                                </div>
+                                <h5 class="mb-0 fw-bold">Танцевальные вечера</h5>
+                            </div>
+                            <p class="card-text">Каждую пятницу в ДК проходят танцевальные вечера для взрослых с живой музыкой и праздничной программой.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                <span>Пятница</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                <span>19:00 - 22:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regular Event 3 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-child fa-xl text-white"></i>
+                                </div>
+                                <h5 class="mb-0 fw-bold">Детские игровые программы</h5>
+                            </div>
+                            <p class="card-text">Каждое воскресенье для детей проводятся игровые и развлекательные программы с аниматорами и конкурсами.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                <span>Воскресенье</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                <span>12:00 - 13:30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regular Event 4 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-book fa-xl text-white"></i>
+                                </div>
+                                <h5 class="mb-0 fw-bold">Литературная гостиная</h5>
+                            </div>
+                            <p class="card-text">Каждый вторник проходят встречи любителей литературы, обсуждения книг и творческие вечера местных авторов.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                <span>Вторник</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                <span>18:00 - 20:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regular Event 5 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-chess fa-xl text-white"></i>
+                                </div>
+                                <h5 class="mb-0 fw-bold">Шахматные турниры</h5>
+                            </div>
+                            <p class="card-text">По субботам проводятся любительские шахматные турниры для всех возрастов и уровней подготовки.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                <span>Суббота</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                <span>15:00 - 17:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regular Event 6 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-paint-brush fa-xl text-white"></i>
+                                </div>
+                                <h5 class="mb-0 fw-bold">Творческие мастер-классы</h5>
+                            </div>
+                            <p class="card-text">Каждую среду проводятся различные мастер-классы по рукоделию, живописи и другим видам творчества.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                <span>Среда</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                <span>16:00 - 18:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Booking CTA -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="mb-4">Хотите провести мероприятие в ДК "Клопицы"?</h2>
+                    <p class="lead mb-4">Мы предлагаем помещения и организационную поддержку для проведения частных и общественных мероприятий</p>
+                    <a href="services.html" class="btn btn-primary btn-lg">Узнать условия</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-3">ДК "Клопицы"</h5>
+                    <p>Культурный центр Клопицкого сельского поселения</p>
+                    <div class="mt-3">
+                        <a href="https://vk.com/" class="text-white me-3" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="https://t.me/" class="text-white me-3" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> д. Клопицы, д. 2-в</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (XXX) XXX-XX-XX</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dkklopitsy.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Режим работы</h5>
+                    <p><i class="fas fa-clock me-2"></i> <strong>Вторник–Суббота:</strong> 12:00–20:00</p>
+                    <p><i class="fas fa-exclamation-circle me-2"></i> <strong>Понедельник, Воскресенье:</strong> выходной</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ДК "Клопицы". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Современное меню JS -->
+    <script src="js/modern-menu.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Инициализация AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        // Фильтрация мероприятий (для демонстрации)
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            const category = document.getElementById('event-category').value;
+            const month = document.getElementById('event-month').value;
+            
+            console.log('Фильтр:', { category, month });
+            // В реальном сценарии здесь был бы запрос к серверу или фильтрация на стороне клиента
+            alert('Фильтр применен: ' + 
+                 (category !== 'all' ? 'Категория: ' + category : 'Все категории') + ', ' + 
+                 (month !== 'all' ? 'Месяц: ' + month : 'Все месяцы'));
+        });
+        
+        // Кнопка "Показать больше мероприятий"
+        document.querySelector('.btn-outline-primary.btn-lg').addEventListener('click', function() {
+            // В реальном сценарии здесь был бы запрос за дополнительными мероприятиями
+            this.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Загрузка...';
+            
+            setTimeout(() => {
+                this.innerHTML = 'Показать больше мероприятий';
+                alert('В данный момент больше мероприятий не запланировано.');
+            }, 1500);
+        });
+    </script>
+</body>
+</html> 

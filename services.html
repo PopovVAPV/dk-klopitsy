@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Платные услуги - ДК "Клопицы"</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS - Animate on scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Современное меню CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Современное меню -->
+    <header class="modern-menu">
+        <div class="container menu-container">
+            <a href="index.html" class="menu-logo">
+                <div class="menu-logo-shield">
+                    <span>ДК</span>
+                </div>
+                <span class="menu-logo-text">Клопицы</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">Главная</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="about.html" class="menu-link">О нас</a>
+                    </li>
+                    <li class="menu-item has-dropdown">
+                        <a href="#" class="menu-link">Кружки и секции</a>
+                        <div class="menu-dropdown">
+                            <a href="clubs/music.html" class="dropdown-item">Музыка</a>
+                            <a href="clubs/dance.html" class="dropdown-item">Хореография</a>
+                            <a href="clubs/art.html" class="dropdown-item">ИЗО</a>
+                            <a href="clubs/circus.html" class="dropdown-item">Цирк</a>
+                            <a href="clubs/library.html" class="dropdown-item">Библиотека</a>
+                            <a href="clubs/chess.html" class="dropdown-item">Шахматный клуб</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="schedule.html" class="menu-link">Расписание</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="events.html" class="menu-link">Мероприятия</a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="services.html" class="menu-link">Платные услуги</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="contacts.html" class="menu-link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-actions">
+                <button class="menu-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="theme-slider">
+                        <i class="fas fa-moon theme-icon theme-icon-moon"></i>
+                        <i class="fas fa-sun theme-icon theme-icon-sun"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Поисковая панель -->
+        <div class="search-panel">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Что вы хотите найти?">
+                <button type="submit" class="search-btn">Поиск</button>
+            </form>
+            <button class="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Затемнение для мобильного меню -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Кнопка "Наверх" -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5 page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold">Платные услуги</h1>
+                    <p class="lead">Дополнительные услуги нашего Дома культуры</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Категории услуг -->
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-users fa-2x text-white"></i>
+                                </div>
+                                <h3 class="mb-0 fw-bold">Групповые занятия</h3>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Хореография</span>
+                                    <span class="badge bg-primary rounded-pill">200 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Игра на инструментах</span>
+                                    <span class="badge bg-primary rounded-pill">200 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Изобразительное искусство</span>
+                                    <span class="badge bg-primary rounded-pill">200 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Прикладное творчество</span>
+                                    <span class="badge bg-primary rounded-pill">200 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Йога</span>
+                                    <span class="badge bg-primary rounded-pill">200 ₽</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-user fa-2x text-white"></i>
+                                </div>
+                                <h3 class="mb-0 fw-bold">Индивидуальные занятия</h3>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Хореография</span>
+                                    <span class="badge bg-primary rounded-pill">500 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Вокал</span>
+                                    <span class="badge bg-primary rounded-pill">500 ₽</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-microphone fa-2x text-white"></i>
+                                </div>
+                                <h3 class="mb-0 fw-bold">Студия звукозаписи</h3>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Запись - 1 час</span>
+                                    <span class="badge bg-primary rounded-pill">1200 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Сведение - 1 дорожка</span>
+                                    <span class="badge bg-primary rounded-pill">1200 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Создание минусовки (автоаранжировка на синтезаторе)</span>
+                                    <span class="badge bg-primary rounded-pill">1200 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Тюн вокала (вручную) - за 1 минуту звучания</span>
+                                    <span class="badge bg-primary rounded-pill">1000 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Автотюн</span>
+                                    <span class="badge bg-primary rounded-pill">200 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Изменение тональности</span>
+                                    <span class="badge bg-primary rounded-pill">200 ₽</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-ticket-alt fa-2x text-white"></i>
+                                </div>
+                                <h3 class="mb-0 fw-bold">Мероприятия</h3>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Просмотр фильма:</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 ps-3">
+                                    <span>- билет для взрослых</span>
+                                    <span class="badge bg-primary rounded-pill">100 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 ps-3">
+                                    <span>- билет для детей</span>
+                                    <span class="badge bg-primary rounded-pill">50 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Дискотеки:</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 ps-3">
+                                    <span>- детские</span>
+                                    <span class="badge bg-primary rounded-pill">50 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 ps-3">
+                                    <span>- подростковые</span>
+                                    <span class="badge bg-primary rounded-pill">80 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 ps-3">
+                                    <span>- молодежные</span>
+                                    <span class="badge bg-primary rounded-pill">150 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 ps-3">
+                                    <span>- праздничные</span>
+                                    <span class="badge bg-primary rounded-pill">200 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Спектакли/Концерты</span>
+                                    <span class="badge bg-primary rounded-pill">100 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Вечера отдыха, огоньки и др. театрализованные представления с игровыми программами</span>
+                                    <span class="badge bg-primary rounded-pill">500 ₽</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-gift fa-2x text-white"></i>
+                                </div>
+                                <h3 class="mb-0 fw-bold">Праздничные мероприятия</h3>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Новогодние утренники для детей:</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 ps-3">
+                                    <span>- организованные ДК</span>
+                                    <span class="badge bg-primary rounded-pill">100 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 ps-3">
+                                    <span>- с подарком от ДК</span>
+                                    <span class="badge bg-primary rounded-pill">600 ₽</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Новогодние вечера, карнавалы (для взрослых)</span>
+                                    <span class="badge bg-primary rounded-pill">500 ₽</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="flex-shrink-0 bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-building fa-2x text-white"></i>
+                                </div>
+                                <h3 class="mb-0 fw-bold">Прочее</h3>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Организация и проведение мероприятий для организаций и предприятий</span>
+                                    <span>По договоренности</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Аренда помещений для проведения мероприятий</span>
+                                    <span>По договоренности</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span>Организация выставок и мастер-классов</span>
+                                    <span>По договоренности</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Контактная информация -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4 text-center">Как заказать услугу</h3>
+                            <p class="text-center mb-4">Для получения детальной информации или заказа услуги вы можете обратиться к администрации ДК "Клопицы":</p>
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 mb-3 mb-md-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="fas fa-phone-alt fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1">Телефон</h5>
+                                            <p class="mb-0">+7 (XXX) XXX-XX-XX</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3 mb-md-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="fas fa-envelope fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1">Email</h5>
+                                            <p class="mb-0">info@dkklopitsy.ru</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1">Адрес</h5>
+                                            <p class="mb-0">д. Клопицы, д. 2-в</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>ДК "Клопицы"</h5>
+                    <p>Культурный центр Клопицкого сельского поселения</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> д. Клопицы, д. 2-в</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (XXX) XXX-XX-XX</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dkklopitsy.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Соцсети</h5>
+                    <div class="social-links">
+                        <a href="https://vk.com/" class="text-white me-3" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="https://t.me/" class="text-white me-3" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ДК "Клопицы". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Современное меню JS -->
+    <script src="js/modern-menu.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

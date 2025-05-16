@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИЗО студия - ДК "Клопицы"</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS - Animate on scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Современное меню CSS -->
+    <link rel="stylesheet" href="../css/menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Современное меню -->
+    <header class="modern-menu">
+        <div class="container menu-container">
+            <a href="../index.html" class="menu-logo">
+                <div class="menu-logo-shield">
+                    <span>ДК</span>
+                </div>
+                <span class="menu-logo-text">Клопицы</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="../index.html" class="menu-link">Главная</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../about.html" class="menu-link">О нас</a>
+                    </li>
+                    <li class="menu-item has-dropdown active">
+                        <a href="#" class="menu-link">Кружки и секции</a>
+                        <div class="menu-dropdown">
+                            <a href="music.html" class="dropdown-item">Музыка</a>
+                            <a href="dance.html" class="dropdown-item">Хореография</a>
+                            <a href="art.html" class="dropdown-item active">ИЗО</a>
+                            <a href="circus.html" class="dropdown-item">Цирк</a>
+                            <a href="library.html" class="dropdown-item">Библиотека</a>
+                            <a href="chess.html" class="dropdown-item">Шахматный клуб</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../schedule.html" class="menu-link">Расписание</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../events.html" class="menu-link">Мероприятия</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../services.html" class="menu-link">Платные услуги</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../contacts.html" class="menu-link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-actions">
+                <button class="menu-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="theme-slider">
+                        <i class="fas fa-moon theme-icon theme-icon-moon"></i>
+                        <i class="fas fa-sun theme-icon theme-icon-sun"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Поисковая панель -->
+        <div class="search-panel">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Что вы хотите найти?">
+                <button type="submit" class="search-btn">Поиск</button>
+            </form>
+            <button class="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Затемнение для мобильного меню -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Кнопка "Наверх" -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5 page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold">Изобразительное искусство</h1>
+                    <p class="lead">Кружки рисования и прикладного творчества</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="position-relative py-0" style="min-height: 70vh;">
+        <div class="bg-image position-absolute w-100 h-100" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/clubs/art-bg.jpg') no-repeat center center; background-size: cover;"></div>
+        <div class="container position-relative py-5 text-center text-white">
+            <div class="py-5">
+                <h1 class="display-3 fw-bold mt-5 mb-4 animate__animated animate__fadeInDown">ИЗО студия "Солнечный цвет"</h1>
+                <p class="lead fs-4 mb-5 animate__animated animate__fadeInUp">Развиваем творческие способности и художественный вкус</p>
+                <h2 class="h3 mb-5 animate__animated animate__fadeInUp animate__delay-1s">Руководитель: Сидорова Мария Петровна</h2>
+                <div class="d-flex justify-content-center animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#about" class="btn btn-primary btn-lg me-3">Узнать больше</a>
+                    <a href="#schedule" class="btn btn-outline-light btn-lg">Расписание</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="../images/clubs/art-about.jpg" alt="ИЗО студия" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=ИЗО+студия'">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="mb-4">О нашей студии</h2>
+                    <p class="lead mb-4">ИЗО студия "Солнечный цвет" — это место, где каждый ребенок может раскрыть свой творческий потенциал и научиться различным техникам изобразительного искусства.</p>
+                    <p>Наша студия предлагает занятия для детей разных возрастов, начиная с 5 лет. Мы учим детей рисовать, лепить, создавать аппликации, развиваем их художественное восприятие, фантазию и мелкую моторику.</p>
+                    <p>Работы наших учеников регулярно участвуют в районных и областных выставках и конкурсах, многие из них становятся призерами и победителями.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directions Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Направления студии</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-0 h-100 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="display-4 text-primary mb-3">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3 class="h4 card-title">Рисунок и живопись</h3>
+                            <p class="card-text">Освоение основ рисунка, знакомство с различными художественными материалами: карандаш, акварель, гуашь, пастель, акрил.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card border-0 h-100 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="display-4 text-primary mb-3">
+                                <i class="fas fa-hands"></i>
+                            </div>
+                            <h3 class="h4 card-title">Лепка</h3>
+                            <p class="card-text">Работа с пластилином, глиной, соленым тестом. Создание объемных фигур, барельефов, мелкой пластики.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card border-0 h-100 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="display-4 text-primary mb-3">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h3 class="h4 card-title">Декоративно-прикладное творчество</h3>
+                            <p class="card-text">Аппликация, оригами, коллаж, работа с природными материалами, изготовление подарков и сувениров своими руками.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Age Groups Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Возрастные группы</h2>
+            
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left">
+                    <img src="../images/clubs/art-kids.jpg" alt="Младшая группа" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Младшая+группа'">
+                </div>
+                <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+                    <div class="badge bg-primary fs-6 mb-3">5-8 лет</div>
+                    <h3>Младшая группа "Краски радуги"</h3>
+                    <p class="lead">Первые шаги в мире искусства</p>
+                    <p>В младшей группе дети знакомятся с основными цветами, формами, учатся держать кисть и карандаш, осваивают простые техники рисования и лепки. Занятия проходят в игровой форме.</p>
+                    <p><strong>Расписание занятий:</strong> Среда и пятница, 16:00-17:00</p>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="../images/clubs/art-teens.jpg" alt="Старшая группа" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Старшая+группа'">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="badge bg-primary fs-6 mb-3">9-14 лет</div>
+                    <h3>Старшая группа "Палитра"</h3>
+                    <p class="lead">Углубленное изучение изобразительного искусства</p>
+                    <p>В старшей группе дети осваивают более сложные техники, знакомятся с основами композиции, перспективы, цветоведения. Работают над тематическими проектами и готовятся к участию в выставках и конкурсах.</p>
+                    <p><strong>Расписание занятий:</strong> Вторник и четверг, 17:30-19:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="bg-light py-5" id="schedule">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5" data-aos="fade-up">
+                    <h2 class="mb-4">Расписание занятий</h2>
+                    <p class="lead">Ознакомьтесь с расписанием занятий ИЗО студии "Солнечный цвет"</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-striped schedule-table mb-0">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>Группа</th>
+                                            <th>Понедельник</th>
+                                            <th>Вторник</th>
+                                            <th>Среда</th>
+                                            <th>Четверг</th>
+                                            <th>Пятница</th>
+                                            <th>Суббота</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Краски радуги</strong><br>(5-8 лет)</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>16:00-17:00</td>
+                                            <td>-</td>
+                                            <td>16:00-17:00</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Палитра</strong><br>(9-14 лет)</td>
+                                            <td>-</td>
+                                            <td>17:30-19:00</td>
+                                            <td>-</td>
+                                            <td>17:30-19:00</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-4" role="alert">
+                        <i class="fas fa-info-circle me-2"></i> Занятия проводятся на платной основе. Стоимость одного занятия - 300 рублей. Материалы предоставляются.
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a href="../schedule.html" class="btn btn-outline-primary">Полное расписание ДК</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Галерея работ</h2>
+            
+            <div class="row g-4" data-aos="fade-up">
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/art-work1.jpg" class="gallery-item">
+                        <img src="../images/clubs/art-work1.jpg" alt="Работа ученика" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Работа+ученика'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/art-work2.jpg" class="gallery-item">
+                        <img src="../images/clubs/art-work2.jpg" alt="Работа ученика" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Работа+ученика'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/art-work3.jpg" class="gallery-item">
+                        <img src="../images/clubs/art-work3.jpg" alt="Работа ученика" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Работа+ученика'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/art-work4.jpg" class="gallery-item">
+                        <img src="../images/clubs/art-work4.jpg" alt="Работа ученика" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Работа+ученика'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/art-work5.jpg" class="gallery-item">
+                        <img src="../images/clubs/art-work5.jpg" alt="Работа ученика" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Работа+ученика'">
+                    </a>
+                </div>
+                <div class="col-md-4 col-6">
+                    <a href="../images/clubs/art-work6.jpg" class="gallery-item">
+                        <img src="../images/clubs/art-work6.jpg" alt="Работа ученика" class="img-fluid rounded shadow-sm" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Работа+ученика'">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="bg-light py-5" id="registration">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="mb-4">Запишитесь на занятия</h2>
+                    <p class="lead mb-5">Начните творческий путь вместе с нами!</p>
+                    
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <form class="contact-form">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Имя и фамилия ребенка</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="age" class="form-label">Возраст</label>
+                                        <input type="number" class="form-control" id="age" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="parent-name" class="form-label">ФИО родителя/представителя</label>
+                                        <input type="text" class="form-control" id="parent-name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Телефон</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="group" class="form-label">Группа</label>
+                                        <select class="form-select" id="group" required>
+                                            <option value="" selected disabled>Выберите группу</option>
+                                            <option value="kids">Краски радуги (5-8 лет)</option>
+                                            <option value="teens">Палитра (9-14 лет)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Дополнительная информация</label>
+                                        <textarea class="form-control" id="message" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">Отправить заявку</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-3">ДК "Клопицы"</h5>
+                    <p>Культурный центр Клопицкого сельского поселения</p>
+                    <div class="mt-3">
+                        <a href="https://vk.com/" class="text-white me-3" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="https://t.me/" class="text-white me-3" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> д. Клопицы, д. 2-в</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (XXX) XXX-XX-XX</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dkklopitsy.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Режим работы</h5>
+                    <p><i class="fas fa-clock me-2"></i> <strong>Вторник–Суббота:</strong> 12:00–20:00</p>
+                    <p><i class="fas fa-exclamation-circle me-2"></i> <strong>Понедельник, Воскресенье:</strong> выходной</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ДК "Клопицы". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Современное меню JS -->
+    <script src="../js/modern-menu.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    
+    <script>
+        // Инициализация AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html> 

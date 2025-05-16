@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - ДК "Клопицы"</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS - Animate on scroll library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Современное меню CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Современное меню -->
+    <header class="modern-menu">
+        <div class="container menu-container">
+            <a href="index.html" class="menu-logo">
+                <div class="menu-logo-shield">
+                    <span>ДК</span>
+                </div>
+                <span class="menu-logo-text">Клопицы</span>
+            </a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">Главная</a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="about.html" class="menu-link">О нас</a>
+                    </li>
+                    <li class="menu-item has-dropdown">
+                        <a href="#" class="menu-link">Кружки и секции</a>
+                        <div class="menu-dropdown">
+                            <a href="clubs/music.html" class="dropdown-item">Музыка</a>
+                            <a href="clubs/dance.html" class="dropdown-item">Хореография</a>
+                            <a href="clubs/art.html" class="dropdown-item">ИЗО</a>
+                            <a href="clubs/circus.html" class="dropdown-item">Цирк</a>
+                            <a href="clubs/library.html" class="dropdown-item">Библиотека</a>
+                            <a href="clubs/chess.html" class="dropdown-item">Шахматный клуб</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="schedule.html" class="menu-link">Расписание</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="events.html" class="menu-link">Мероприятия</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="services.html" class="menu-link">Платные услуги</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="contacts.html" class="menu-link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-actions">
+                <button class="menu-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Поисковая панель -->
+        <div class="search-panel">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Что вы хотите найти?">
+                <button type="submit" class="search-btn">Поиск</button>
+            </form>
+            <button class="search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Затемнение для мобильного меню -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Кнопка "Наверх" -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5 page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold">О нас</h1>
+                    <p class="lead">История и миссия ДК "Клопицы"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="images/dk-building.jpg" alt="Здание ДК Клопицы" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Здание+ДК+Клопицы'">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">История нашего Дома культуры</h2>
+                    <p>Клопицкий Дом культуры МКУ "КДЦ "Дружба" осуществляет свою деятельность как творческое культурно-просветительское учреждение современного типа. Одно из тех учреждений в нашем районе, в котором каждый найдет себе занятие по душе. Здесь работают творческие коллективы самых разных направлений, а так же клубы по интересам.</p>
+                    <p>За годы работы наш ДК стал не просто местом проведения мероприятий, но и настоящей творческой площадкой, объединяющей талантливых жителей разных возрастов.</p>
+                    <p>В нашем учреждении регулярно проводятся концерты, выставки, фестивали и праздники, способствующие сохранению культурных традиций и развитию творческого потенциала местного сообщества.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-5 flex-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="images/dk-event.jpg" alt="Мероприятие в ДК" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Мероприятие+в+ДК'">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Наша миссия</h2>
+                    <p>Миссия ДК "Клопицы" — создавать возможности для творческой самореализации, организации досуга и культурного развития жителей всех возрастов нашего поселения.</p>
+                    <p>Мы стремимся:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Предоставлять разнообразные формы культурного досуга</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Развивать творческие способности детей и взрослых</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Сохранять и популяризировать культурные традиции</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Создавать комфортное пространство для общения и развития</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="images/dk-team.jpg" alt="Команда ДК" class="img-fluid rounded shadow-lg" onerror="this.src='https://via.placeholder.com/600x400/beige/800000?text=Команда+ДК'">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Наша команда</h2>
+                    <p>В ДК "Клопицы" работают квалифицированные специалисты, талантливые руководители творческих коллективов и опытные организаторы культурно-массовых мероприятий.</p>
+                    <p>Наша команда постоянно повышает профессиональный уровень, осваивает новые методики работы и стремится сделать жизнь в Клопицком сельском поселении насыщенной и интересной.</p>
+                    <p>Мы всегда открыты для новых идей и готовы к сотрудничеству!</p>
+                </div>
+            </div>
+
+            <!-- Наши сотрудники -->
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <h2 class="mb-4">Наши сотрудники</h2>
+                    <p class="mb-5">Наш коллектив состоит из опытных специалистов, которые помогут вам раскрыть ваши таланты.</p>
+                </div>
+            </div>
+            
+            <!-- Сотрудник 1 -->
+            <div class="row align-items-center mb-5 border-bottom pb-4">
+                <div class="col-lg-4 mb-4 mb-lg-0 text-center">
+                    <img src="images/staff/semenova-nm.jpg" alt="Семёнова Надежда Михайловна" class="img-fluid rounded-circle mb-3 shadow" style="max-width: 250px;" onerror="this.src='https://via.placeholder.com/250x250/beige/800000?text=Семёнова+Н.М.'">
+                </div>
+                <div class="col-lg-8">
+                    <h3>Семёнова Надежда Михайловна</h3>
+                    <p class="text-muted">Заместитель директора</p>
+                    <p><strong>Стаж работы в сфере культуры:</strong> 10 лет</p>
+                    <p><strong>Клубные формирования:</strong></p>
+                    <ul>
+                        <li>Карамельки</li>
+                        <li>Киви Данс</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Сотрудник 2 -->
+            <div class="row align-items-center mb-5 border-bottom pb-4">
+                <div class="col-lg-4 mb-4 mb-lg-0 text-center order-lg-last">
+                    <img src="images/staff/agafonov-nv.jpg" alt="Агафонов Николай Владимирович" class="img-fluid rounded-circle mb-3 shadow" style="max-width: 250px;" onerror="this.src='https://via.placeholder.com/250x250/beige/800000?text=Агафонов+Н.В.'">
+                </div>
+                <div class="col-lg-8">
+                    <h3>Агафонов Николай Владимирович</h3>
+                    <p class="text-muted">Хормейстер</p>
+                    <p><strong>Стаж работы в сфере культуры:</strong> 10 лет</p>
+                    <p><strong>Клубные формирования:</strong></p>
+                    <ul>
+                        <li>Coverdrive</li>
+                        <li>ВИА "Овация"</li>
+                        <li>ВИА "Виртуозы"</li>
+                        <li>вокальный ансамбль "Весёлые нотки"</li>
+                        <li>вокальный ансамбль "Овация"</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Сотрудник 3 -->
+            <div class="row align-items-center mb-5 border-bottom pb-4">
+                <div class="col-lg-4 mb-4 mb-lg-0 text-center">
+                    <img src="images/staff/golubev-sl.jpg" alt="Голубев Сергей Леонидович" class="img-fluid rounded-circle mb-3 shadow" style="max-width: 250px;" onerror="this.src='https://via.placeholder.com/250x250/beige/800000?text=Голубев+С.Л.'">
+                </div>
+                <div class="col-lg-8">
+                    <h3>Голубев Сергей Леонидович</h3>
+                    <p class="text-muted">Аккомпаниатор</p>
+                    <p><strong>Стаж работы в сфере культуры:</strong> 4 года</p>
+                    <p><strong>Клубные формирования:</strong></p>
+                    <ul>
+                        <li>Русская гармоника</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Сотрудник 4 -->
+            <div class="row align-items-center mb-5 border-bottom pb-4">
+                <div class="col-lg-4 mb-4 mb-lg-0 text-center order-lg-last">
+                    <img src="images/staff/voevodina-ap.jpg" alt="Воеводина Анастасия Павловна" class="img-fluid rounded-circle mb-3 shadow" style="max-width: 250px;" onerror="this.src='https://via.placeholder.com/250x250/beige/800000?text=Воеводина+А.П.'">
+                </div>
+                <div class="col-lg-8">
+                    <h3>Воеводина Анастасия Павловна</h3>
+                    <p class="text-muted">Руководитель кружка</p>
+                    <p><strong>Стаж работы в сфере культуры:</strong> 1 год</p>
+                    <p><strong>Клубные формирования:</strong></p>
+                    <ul>
+                        <li>ИЗО</li>
+                        <li>Лепка</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Сотрудник 5 -->
+            <div class="row align-items-center mb-5 border-bottom pb-4">
+                <div class="col-lg-4 mb-4 mb-lg-0 text-center">
+                    <img src="images/staff/semenova-na.jpg" alt="Семёнова Наталия Александровна" class="img-fluid rounded-circle mb-3 shadow" style="max-width: 250px;" onerror="this.src='https://via.placeholder.com/250x250/beige/800000?text=Семёнова+Н.А.'">
+                </div>
+                <div class="col-lg-8">
+                    <h3>Семёнова Наталия Александровна</h3>
+                    <p class="text-muted">Библиотекарь</p>
+                    <p><strong>Стаж работы в сфере культуры:</strong> 11 лет</p>
+                    <p><strong>Клубные формирования:</strong></p>
+                    <ul>
+                        <li>Семейный остров</li>
+                        <li>Солнечные встречи с книгой</li>
+                        <li>Земля отцов</li>
+                        <li>Лира</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Сотрудник 6 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-4 mb-4 mb-lg-0 text-center order-lg-last">
+                    <img src="images/staff/vyazkova-su.jpg" alt="Вязкова Светлана Юрьевна" class="img-fluid rounded-circle mb-3 shadow" style="max-width: 250px;" onerror="this.src='https://via.placeholder.com/250x250/beige/800000?text=Вязкова+С.Ю.'">
+                </div>
+                <div class="col-lg-8">
+                    <h3>Вязкова Светлана Юрьевна</h3>
+                    <p class="text-muted">Руководитель клубного формирования</p>
+                    <p><strong>Стаж работы в сфере культуры:</strong> 15 лет</p>
+                    <p><strong>Клубные формирования:</strong></p>
+                    <ul>
+                        <li>Цирковое искусство</li>
+                        <li>Веретёнце</li>
+                        <li>Карамельки</li>
+                        <li>Йога</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Достижения и награды -->
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <h2 class="mb-4">Достижения и награды</h2>
+                    <p class="mb-5">Творческие коллективы ДК "Клопицы" регулярно становятся лауреатами и победителями районных, областных и всероссийских конкурсов и фестивалей.</p>
+                    
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-trophy text-primary fa-3x mb-3"></i>
+                                    <h5 class="card-title">Областные конкурсы</h5>
+                                    <p class="card-text">Неоднократные победы в областных творческих конкурсах и фестивалях.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-medal text-primary fa-3x mb-3"></i>
+                                    <h5 class="card-title">Лучший ДК района</h5>
+                                    <p class="card-text">Звание "Лучшее учреждение культуры" Волосовского района.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-award text-primary fa-3x mb-3"></i>
+                                    <h5 class="card-title">Благодарности</h5>
+                                    <p class="card-text">Благодарственные письма от администрации района и области.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Присоединяйтесь к нам!</h2>
+                    <p class="lead mb-4">Мы всегда рады видеть новых участников в наших творческих коллективах и гостей на мероприятиях!</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#" class="btn btn-primary dropdown-toggle" id="clubsDropdown" data-bs-toggle="dropdown" aria-expanded="false">Выбрать кружок</a>
+                        <ul class="dropdown-menu" aria-labelledby="clubsDropdown">
+                            <li><a class="dropdown-item" href="clubs/music.html">Музыка</a></li>
+                            <li><a class="dropdown-item" href="clubs/dance.html">Хореография</a></li>
+                            <li><a class="dropdown-item" href="clubs/art.html">ИЗО</a></li>
+                            <li><a class="dropdown-item" href="clubs/circus.html">Цирк</a></li>
+                            <li><a class="dropdown-item" href="clubs/library.html">Библиотека</a></li>
+                            <li><a class="dropdown-item" href="clubs/chess.html">Шахматный клуб</a></li>
+                        </ul>
+                        <a href="events.html" class="btn btn-outline-primary">Афиша мероприятий</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>ДК "Клопицы"</h5>
+                    <p>Культурный центр Клопицкого сельского поселения</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> д. Клопицы, д. 2-в</p>
+                    <p><i class="fas fa-phone me-2"></i> +7 (XXX) XXX-XX-XX</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dkklopitsy.ru</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Соцсети</h5>
+                    <div class="social-links">
+                        <a href="https://vk.com/" class="text-white me-3" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="https://t.me/" class="text-white me-3" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ДК "Клопицы". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Современное меню JS -->
+    <script src="js/modern-menu.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
