@@ -423,24 +423,13 @@
         visibility: visible;
     }
 
+    /* Скрываем поиск и смену темы на мобильных устройствах */
     .menu-actions {
-        position: fixed;
-        bottom: 20px;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        padding: 10px;
-        background: rgba(35, 35, 35, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        z-index: 9999;
+        display: none !important;
     }
 
-    .menu-search-btn,
-    .menu-action-btn {
-        margin: 0 15px;
-        font-size: 1.4rem;
+    .search-panel {
+        display: none !important;
     }
 }
 
