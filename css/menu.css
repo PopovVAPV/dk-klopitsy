@@ -35,6 +35,7 @@
     z-index: 2;
     display: flex;
     align-items: center;
+    margin-right: auto;
 }
 
 .menu-logo-shield {
@@ -80,6 +81,7 @@
     height: 21px;
     cursor: pointer;
     z-index: 2;
+    margin-left: auto;
 }
 
 .menu-toggle span {
@@ -327,82 +329,76 @@
 /* Медиа-запросы для адаптивности */
 @media (max-width: 992px) {
     .menu-toggle {
-        display: flex !important;
-        z-index: 10000;
+        display: flex;
     }
-
+    
     .menu-nav {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
-        max-width: 400px;
+        width: 280px;
         height: 100vh;
         background: rgba(35, 35, 35, 0.98);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         padding: 80px 20px 20px;
-        transition: all 0.4s ease;
+        transition: transform 0.4s ease;
         overflow-y: auto;
-        z-index: 9998;
+        z-index: 1000;
+        transform: translateX(0);
     }
-
+    
     .menu-nav.active {
-        right: 0;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        transform: translateX(-100%);
     }
-
+    
     .menu-list {
         flex-direction: column;
         align-items: flex-start;
     }
-
+    
     .menu-item {
+        margin: 0.5rem 0;
         width: 100%;
-        margin: 10px 0;
-        opacity: 0;
-        transform: translateX(20px);
-        transition: all 0.3s ease;
     }
-
+    
     .menu-item.active {
-        opacity: 1;
-        transform: translateX(0);
+        background: rgba(212, 175, 55, 0.1);
+        border-radius: 8px;
     }
-
+    
     .menu-link {
-        font-size: 1.2rem;
-        padding: 10px 0;
-        display: block;
+        padding: 0.8rem 1rem;
         width: 100%;
+        display: block;
     }
-
+    
     .menu-dropdown {
         position: static;
-        width: 100%;
+        transform: none;
         background: transparent;
         box-shadow: none;
         padding: 0;
-        margin-top: 10px;
-        transform: none;
+        margin-top: 0.5rem;
         opacity: 1;
         visibility: visible;
         display: none;
+        border: none;
     }
-
+    
     .menu-dropdown::before {
         display: none;
     }
-
+    
     .menu-item.active .menu-dropdown {
         display: block;
     }
-
+    
     .dropdown-item {
-        padding: 10px 20px;
-        font-size: 1.1rem;
+        padding: 0.8rem 1rem;
+        color: #ffffff;
     }
-
+    
     .menu-overlay {
         position: fixed;
         top: 0;
@@ -410,50 +406,93 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(3px);
-        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 9997;
+        transition: all 0.4s ease;
+        z-index: 999;
+        pointer-events: none;
     }
-
+    
     .menu-overlay.active {
         opacity: 1;
         visibility: visible;
+        pointer-events: auto;
     }
-
-    /* Скрываем поиск и смену темы на мобильных устройствах */
+    
     .menu-actions {
-        display: none !important;
+        margin-left: auto;
     }
-
+    
     .search-panel {
-        display: none !important;
+        width: 100%;
+        max-width: 100%;
     }
 }
 
-/* Дополнительные медиа-запросы для очень маленьких экранов */
 @media (max-width: 576px) {
     .menu-nav {
         width: 100%;
-        max-width: none;
+        padding: 70px 15px 15px;
     }
-
+    
     .menu-logo-text {
         font-size: 1.2rem;
     }
-
+    
     .menu-logo-shield {
         height: 35px;
         width: 30px;
+        font-size: 0.5rem;
+    }
+    
+    .menu-container {
+        padding: 0.8rem 0;
+    }
+    
+    .menu-toggle {
+        width: 25px;
+        height: 18px;
+    }
+    
+    .menu-toggle span {
+        height: 2px;
+    }
+    
+    .menu-link {
+        font-size: 0.9rem;
+        padding: 0.7rem 0.8rem;
+    }
+    
+    .dropdown-item {
+        font-size: 0.9rem;
+        padding: 0.7rem 0.8rem;
+    }
+    
+    .menu-actions {
+        margin-left: 0.5rem;
+    }
+    
+    .menu-search-btn,
+    .menu-action-btn {
+        font-size: 1rem;
+        margin-left: 0.8rem;
     }
 }
 
-/* Улучшения для планшетов */
 @media (min-width: 768px) and (max-width: 992px) {
     .menu-nav {
-        width: 60%;
+        width: 320px;
+        padding: 80px 25px 25px;
+    }
+    
+    .menu-link {
+        font-size: 1.1rem;
+    }
+    
+    .dropdown-item {
+        font-size: 1rem;
     }
 }
 
